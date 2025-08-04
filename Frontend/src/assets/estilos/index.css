@@ -1,0 +1,130 @@
+
+/* Estilo general */
+.pagina {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: url('/imagenes/fondo_body.jpg') no-repeat center top;
+  background-size: cover;
+  font-family: 'Rubik', Arial, sans-serif;
+  color: #222;
+}
+
+/* Encabezado */
+.encabezado {
+  position: relative;
+  padding: 2rem 1rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  text-align: center;
+}
+
+.logo-container {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+  border-radius: 20px;
+}
+
+/* Título centrado */
+.encabezado h1 {
+  margin: 0;
+  color: #8bb915;
+  font-size: 1.8rem;
+}
+
+
+/* Cuerpo principal */
+.cuerpo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.instrucciones {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #0c4f93;
+}
+
+/* Botones */
+.botonera {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.boton {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  background-color: #8bb915;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.boton:hover:enabled {
+  background-color: #6f9f0f;
+}
+
+.boton[disabled] {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.boton-migrar {
+  background-color: orange;
+}
+
+.boton-migrar:hover:enabled {
+  background-color: darkorange;
+}
+
+/* Pie de página */
+.pie {
+  background-color: lightblue;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.95rem;
+}
+
+.pie .p1,
+.pie .p2,
+.pie .p3 {
+  flex: 1;
+  min-width: 200px;
+}
+
+.p3 ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.p3 ul li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.p3 img {
+  width: 30px;
+  height: auto;
+}

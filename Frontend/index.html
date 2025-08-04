@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Sistema de Migración SAP</title>
+    <meta name="description" content="Migrador de datos SAP HANA a SQL Server" />
+    <link rel="icon" type="image/png" href="/static/favicon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vue3-toastify/dist/index.css" />
+
+    <style>
+      * {
+        font-family: 'Rubik', sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      #toast-aviso {
+        position: fixed;
+        top: 1.5rem;
+        right: 1.5rem;
+        background: linear-gradient(90deg, #fff3cd, #ffe8a1);
+        color: #856404;
+        padding: 1rem 1.5rem 1rem 3.5rem;
+        border-left: 6px solid #ffc107;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        font-size: 0.95rem;
+        z-index: 9999;
+        opacity: 0;
+        transform: translateX(100%);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+        pointer-events: none;
+        max-width: 300px;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        position: fixed;
+      }
+
+      #toast-aviso::before {
+        content: "⚠️";
+        font-size: 1.5rem;
+        position: absolute;
+        left: 1rem;
+        animation: wiggle 1s ease-in-out infinite;
+      }
+
+      @keyframes wiggle {
+        0% { transform: rotate(0); }
+        25% { transform: rotate(3deg); }
+        50% { transform: rotate(0); }
+        75% { transform: rotate(-3deg); }
+        100% { transform: rotate(0); }
+      }
+
+      #toast-aviso.visible {
+        opacity: 1;
+        transform: translateX(0);
+        pointer-events: auto;
+      }
+
+      #toast-aviso.ocultar {
+        opacity: 0;
+        transform: translateX(100%);
+        pointer-events: none;
+      }
+
+      @media (max-width: 768px) {
+        #toast-aviso {
+          right: 0.5rem;
+          left: 0.5rem;
+          top: 1rem;
+          max-width: unset;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app"></div>
+    <div id="toast-aviso">Recuerda migrar la base de datos antes de generar PDFs</div>
+
+    <script type="module" src="/src/main.js"></script>
+
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        const toast = document.getElementById('toast-aviso');
+        toast.classList.add('visible');
+
+        setTimeout(() => {
+          toast.classList.add('ocultar');
+
+          setTimeout(() => {
+            toast.classList.remove('visible', 'ocultar');
+          }, 600); // transición
+        }, 5000); // visible por 5s
+      });
+    </script>
+  </body>
+</html>
