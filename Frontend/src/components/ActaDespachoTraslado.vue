@@ -4,29 +4,55 @@
 
     <p>Ingrese la fecha de los documentos por exportar</p>
 
-     <label for="fecha">Fecha:</label>
-    <input type="date" v-model="fecha" id="fecha" />
+    <label for="fecha">Fecha:</label>
+    <input type="date" v-model="fecha" id="fecha" @change="verificarMigracion" />
+
+    <div v-if="fechaVerificada" class="estado-migracion">
+      <span v-if="datosMigrados" class="badge success">✅ Datos ya migrados</span>
+      <span v-else class="badge warning">⚠️ Datos no migrados</span>
+    </div>
 
     <div class="botones">
-      <button :disabled="cargando" @click="generarPDF">
+      <button 
+        :disabled="cargando || datosMigrados" 
+        @click="migrarDatos"
+        :title="datosMigrados ? 'Los datos ya fueron migrados' : ''"
+      >
+        🔄 {{ datosMigrados ? 'Datos Migrados' : 'Migrar Datos' }}
+      </button>
+
+      <button 
+        :disabled="cargando || (!datosMigrados && !bonoHabilitado)" 
+        @click="generarPDF" 
+        @dblclick.prevent="confirmarBono"
+        :title="!datosMigrados && !bonoHabilitado ? 'Primero migre los datos o habilite el bono' : ''"
+      >
         📄 Generar PDF
       </button>
+
       <router-link to="/">
         <button class="volver">🔙 Volver</button>
       </router-link>
     </div>
+
     <div v-if="cargando" class="loader"></div>
   </div>
 </template>
+
 <script>
 import Swal from 'sweetalert2'
+
+const API_BASE = "http://localhost:8000/api"
 
 export default {
   name: "ActaDespachoTraslados",
   data() {
     return {
       fecha: "",
-      cargando: false
+      cargando: false,
+      datosMigrados: false,
+      fechaVerificada: false,
+      bonoHabilitado: false,
     };
   },
   mounted() {
@@ -38,59 +64,90 @@ export default {
     });
   },
   methods: {
-    async generarPDF() {
-      if (!this.fecha) {
-        Swal.fire({
-          icon: 'info',
-          title: 'Fecha requerida',
-          text: 'Por favor seleccione una fecha antes de continuar.',
-          confirmButtonText: 'Aceptar'
-        });
-        return;
-      }
+    async apiRequest(url, method = "GET", body = null) {
+      const options = { method, headers: { "Content-Type": "application/json" } }
+      if (body) options.body = JSON.stringify(body)
 
-      this.cargando = true;
+      const res = await fetch(`${API_BASE}${url}`, options)
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.detail || "Error en el servidor")
+      return data
+    },
 
+    async verificarMigracion() {
+      if (!this.fecha) return
+      this.cargando = true
       try {
-        const response = await fetch("http://localhost:8000/api/generar_pdf/", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ fecha: this.fecha, tipo: "traslado" })
-        });
+        // Enviar la fecha en formato YYYY-MM-DD
+        const fechaFormateada = new Date(this.fecha).toISOString().split('T')[0]
+        const data = await this.apiRequest(`/verificar_migracion/?fecha=${fechaFormateada}&grupo=traslados`)
+        this.datosMigrados = data.migrado
+        this.fechaVerificada = true
 
-        if (!response.ok) {
-          throw new Error("Error en el servidor al generar el PDF");
+        if (data.migrado) {
+          Swal.fire({
+            icon: 'info',
+            title: 'Datos ya migrados',
+            text: 'Los datos para esta fecha ya fueron migrados anteriormente.',
+            timer: 2000,
+            showConfirmButton: false
+          })
         }
-
-        const blob = await response.blob();
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = `Acta_Despacho_Traslado_${this.fecha}.pdf`;
-        a.click();
-        window.URL.revokeObjectURL(url);
-
-        Swal.fire({
-          icon: 'success',
-          title: 'PDF generado',
-          text: `El archivo fue descargado correctamente.`,
-          confirmButtonText: 'Ok'
-        });
-
       } catch (error) {
-        Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: `❌ Ocurrió un problema: ${error.message}`,
-          confirmButtonText: 'Cerrar'
-        });
+        console.error("Error verificando migración:", error)
+        this.datosMigrados = false
       } finally {
-        this.cargando = false;
+        this.cargando = false
+      }
+    },
+
+    async migrarDatos() {
+      if (!this.fecha || this.datosMigrados) return
+      this.cargando = true
+      try {
+        // Enviar la fecha en formato YYYY-MM-DD
+        const fechaFormateada = new Date(this.fecha).toISOString().split('T')[0]
+        const data = await this.apiRequest("/importar_traslados/", "POST", { fecha: fechaFormateada })
+        Swal.fire({ icon: 'success', title: '✅ Migración completada', text: data.mensaje || "Datos migrados correctamente" })
+        this.datosMigrados = true
+        this.bonoHabilitado = false
+      } catch (error) {
+        Swal.fire({ icon: 'error', title: 'Error en migración', text: error.message })
+      } finally {
+        this.cargando = false
+      }
+    },
+
+    async confirmarBono() {
+      const { isConfirmed } = await Swal.fire({
+        icon: 'question',
+        title: '¿Habilitar bono?',
+        text: 'Esto te permitirá generar el PDF sin migrar datos nuevamente.',
+        showCancelButton: true,
+        confirmButtonColor: '#8bb915'
+      })
+      if (isConfirmed) {
+        this.bonoHabilitado = true
+        Swal.fire({ icon: 'success', title: 'Bono habilitado 🥷', timer: 1500, showConfirmButton: false })
+      }
+    },
+
+    async generarPDF() {
+      if (!this.fecha) return Swal.fire({ icon: 'info', title: 'Seleccione una fecha' })
+      if (!this.datosMigrados && !this.bonoHabilitado) return Swal.fire({ icon: 'warning', text: 'Primero migre los datos o habilite el bono' })
+
+      this.cargando = true
+      try {
+        const data = await this.apiRequest("/generar_pdf_traslado/", "POST", { fecha: this.fecha })
+        Swal.fire({ icon: 'success', title: '✅ PDFs generados', text: `Se generaron ${data.archivos_generados.length} archivos.` })
+      } catch (error) {
+        Swal.fire({ icon: 'error', title: 'Error generando PDF', text: error.message })
+      } finally {
+        this.cargando = false
       }
     }
   }
 }
-
 </script>
 
 <style scoped>
@@ -98,63 +155,72 @@ export default {
   max-width: 480px;
   margin: 3rem auto;
   padding: 2rem;
-  background-color: #f9fff9;
-  border: 2px solid #8bb915;
-  border-radius: 10px;
-  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.05);
+  background-color: #ffffff;
+  border: 2px solid #4CAF50;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
   text-align: center;
   font-family: 'Rubik', sans-serif;
 }
 
 h2 {
-  color: #444;
+  color: #2e7d32;
   margin-bottom: 1rem;
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 p {
   margin-bottom: 1rem;
   font-size: 15px;
-  color: #333;
+  color: #555;
 }
 
 label {
   font-weight: 600;
-  color: #555;
+  color: #444;
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 input[type="date"] {
-  padding: 0.5rem;
-  border-radius: 6px;
+  padding: 0.6rem;
+  border-radius: 8px;
   border: 1px solid #ccc;
-  margin: 1rem 0;
   width: 100%;
-  max-width: 240px;
+  max-width: 260px;
+  font-size: 15px;
 }
 
 .botones {
   display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
 }
 
 button {
-  background-color: #8bb915;
+  background-color: #4CAF50;
   border: none;
   color: white;
-  padding: 0.6rem 1.2rem;
-  font-size: 14px;
-  border-radius: 5px;
+  padding: 0.8rem 1.4rem;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #779e12;
+  background-color: #388e3c;
 }
 
 button:disabled {
-  background-color: #ccc;
+  background-color: #cccccc;
   cursor: not-allowed;
 }
 
@@ -164,10 +230,19 @@ button.volver {
 }
 
 button.volver:hover {
-  background-color: #c9c9c9;
+  background-color: #c2c2c2;
 }
 
-.loader {
+button:first-child {
+  background-color: #ff9800;
+}
+
+button:first-child:hover {
+  background-color: #f57c00;
+}
+
+/* Animación de carga elegante */
+ .loader {
   height: 60px;
   aspect-ratio: 1;
   position: relative;
@@ -203,4 +278,52 @@ button.volver:hover {
  49.99%  {transform:rotate(0.2deg)}
  50%     {transform:rotate(-0.2deg)}
 }
+
+.estado-migracion {
+  margin: 1rem 0;
+}
+
+.badge {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.success {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+  animation: fadeIn 0.6s ease;
+}
+
+.warning {
+  background-color: #fff8e1;
+  color: #ff8f00;
+  border: 1px solid #ffe082;
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+button:disabled {
+  opacity: 0.7;
+  pointer-events: all;
+}
+
+button:disabled:hover::after {
+  content: attr(title);
+  position: absolute;
+  top: -35px;
+  background: #333;
+  color: #fff;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
 </style>

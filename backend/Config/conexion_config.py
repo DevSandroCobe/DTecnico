@@ -16,4 +16,5 @@ CONFIG_HANA = {
     "dsn": os.getenv("HANA_DSN"),
     "user": os.getenv("HANA_USER"),
     "password": os.getenv("HANA_PASS"),
+    "schema" : os.getenv("HANA_SCHEMA"),
 }

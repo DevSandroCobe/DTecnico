@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    @page {
+      size: A4 landscape;
+      margin: 1cm;
+    }
+
+    body { font-size: 12px; font-family: Arial, sans-serif; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 10px; }
+    td, th { border: 1px solid black; padding: 2px; font-size: 10px; text-align: center; }
+    .firma { margin-top: 40px; text-align: center; }
+    .sin-borde td { border: none; }
+    .small { font-size: 8px; }
+  </style>
+</head>
+<body>
+
+  <!-- ENCABEZADO -->
+  <table class="sin-borde">
+    <tr>
+      <td colspan="2"><img src="generador_pdf/static/logo.jpg" style="width: 120px; height: auto;" /></td>
+      <td></td>
+      <td>
+        <table>
+          <tr><td>F/ALM‑002</td><td>V1</td></tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="4"><strong>ACTA DE DESPACHO DE PRODUCTOS – COBEFAR S.A.C.</strong></td>
+    </tr>
+    <tr>
+      <td><strong>FECHA :</strong></td>
+      <td>{{ fecha }}</td>
+      <td colspan="2"><strong>FACTURA/BOLETA N° :</strong> {{ factura }}</td>
+    </tr>
+    <tr>
+      <td><strong>CLIENTE :</strong></td>
+      <td colspan="3">{{ cliente }}</td>
+    </tr>
+  </table>
+
+  <!-- TABLA DE PRODUCTOS -->
+  <table>
+    <thead>
+      <tr>
+        <th>Cantidad</th>
+        <th>Descripción</th>
+        <th>Lote</th>
+        <th>Vcto</th>
+        <th>R.S.</th>
+        <th colspan="2">Protocolo</th>
+        <th colspan="2">Cajas Limpias</th>
+        <th colspan="2">Embalaje Cerrado</th>
+        <th colspan="2">Consigna Embalaje</th>
+        <th>Cond. Almacen</th>
+        <th colspan="2">Manchado, Derrame, etc.</th>
+        <th colspan="2">Corresponde Documento</th>
+        <th colspan="2">Vehículo Adecuado</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in productos %}
+      <tr>
+        <td>{{ item.cantidad }}</td>
+        <td>{{ item.descripcion }}</td>
+        <td>{{ item.lote }}</td>
+        <td>{{ item.vencimiento }}</td>
+        <td>{{ item.rs }}</td>
+        {% set checks = item.checks %}
+        {% for i in range(7) %}
+          {% if checks and checks[i] %}
+            <td><img src="generador_pdf/static/check.png" style="width: 8px; height: auto;" /></td>
+            <td></td>
+          {% else %}
+            <td></td>
+            <td></td>
+          {% endif %}
+        {% endfor %}
+        <td>{{ item.condicion }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <!-- PIE DE FIRMA -->
+  <div class="firma">
+    <p><strong>OBSERVACIONES:</strong> NINGUNA</p>
+    <img src="generador_pdf/static/FirmaAnthonyAuquipuma.png" style="width: 150px; height: auto;" />
+    <p>-------------------------------------------------</p>
+    <p>RESPONSABLE DE ALMACÉN</p>
+    <p>(sello y firma)</p>
+    <p class="small">Prohibido reproducir sin autorización de DROGUERÍA COBEFAR</p>
+  </div>
+
+</body>
+</html>

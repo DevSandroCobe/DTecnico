@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+  @page {
+    size: A4 landscape;
+    margin: 1.2cm;
+  }
+  body {
+    font-family: 'Calibri', 'Arial', sans-serif;
+    font-size: 11.5px;
+    color: #000;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 7px;
+  }
+  td, th {
+    border: 1px solid #000;
+    padding: 2px;
+    text-align: center;
+    font-family: 'Calibri', 'Arial', sans-serif;
+    font-size: 7px;
+  }
+  .sin-borde td {
+    border: none;
+  }
+  .titulo {
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Calibri', 'Arial', sans-serif;
+  }
+</style>
+</head>
+<body>
+
+<!-- Encabezado -->
+<table class="sin-borde">
+  <tr>
+    <td colspan="2" style="vertical-align: middle;">
+      <img src="generador_pdf/static/logo.jpg" style="width: 120px; height: 50px; display: block; margin: 0;" />
+    </td>
+    <td></td>
+    <td align="right" style="vertical-align: middle;">
+      <table style="border-collapse: collapse; font-size: 12px; display: inline-table;">
+        <tr>
+          <td style="border: 1px solid; width: 60px; padding: 2px 6px;"><strong>F/ALM-001</strong></td>
+          <td style="border: 1px solid; width: 30px; padding: 2px 6px;"><strong>V1</strong></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center" class="titulo">ACTA DE DESPACHO DE PRODUCTOS - COBEFAR S.A.C.</td>
+  </tr>
+  <tr>
+    <td style="text-align:left; font-size:12px;"><strong>FECHA :</strong></td>
+    <td style="text-align:left; font-size:12px;">{{ fecha }}</td>
+    <td colspan="2" align="right" style="font-size:12px;"><strong>GUÍA N° :</strong> {{ guia }}</td>
+  </tr>
+  <tr>
+    <td style="text-align:left; font-size:12px;"><strong>ALMACÉN ORIGEN :</strong></td>
+    <td style="text-align:left; font-size:12px;">{{ AlmOrigen }}</td>
+    <td align="right" style="font-size:12px;"><strong>ALMACÉN DESTINO :</strong></td>
+    <td style="text-align:left; font-size:12px;">{{ AlmDestino }}</td>
+  </tr>
+</table>
+
+<!-- Tabla principal -->
+<table>
+  <thead>
+    <tr>
+      <th rowspan="2">Cantidad<br>Programada</th>
+      <th rowspan="2">Descripción del producto</th>
+      <th rowspan="2">Lote / Serie</th>
+      <th rowspan="2">Fecha Vcto</th>
+      <th rowspan="2">Nro R.S.</th>
+
+      <th colspan="2">Protocolo de Análisis</th>
+      <th colspan="2">Cajas Limpias</th>
+      <th colspan="2">Embalaje Cerrado</th>
+      <th colspan="2">Consigna Condición de Embalaje</th>
+      <th rowspan="2">Condición Almacenamiento</th>
+      <th colspan="2">Manchado / Derrame</th>
+      <th colspan="2">Producto Corresponde al Documento</th>
+      <th colspan="2">Vehículo Limpio y Equipado Condición Adecuada</th>
+    </tr>
+    <tr>
+      <th>SI</th><th>NO</th>
+      <th>SI</th><th>NO</th>
+      <th>SI</th><th>NO</th>
+      <th>SI</th><th>NO</th>
+      <th>SI</th><th>NO</th>
+      <th>SI</th><th>NO</th>
+      <th>SI</th><th>NO</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in productos %}
+    <tr>
+      <td style="padding: 2px;">{{ item.CantidadLote|int }}</td>
+      <td style="text-align: left; padding: 2px;">{{ item.NombreComercial }} {{ item.Concentracion }} {{ item.FormaFarmaceutica }} {{ item.FormaPresentacion }}</td>
+      <td style="padding: 2px;">{{ item.NroLote }}</td>
+      <td style="padding: 2px;">{{ item.Dia }}/{{ item.Mes }}/{{ item.Anio }}</td>
+      <td style="padding: 2px;">{{ item.RegistroSanit }}</td>
+
+      <!-- Protocolo -->
+      <td style="padding: 0;"><img src="generador_pdf/static/check.png" style="width: 12px; height: 12px; display: block; margin: auto;" /></td>
+      <td style="padding: 0;"></td>
+
+      <!-- Cajas Limpias -->
+      <td style="padding: 0;"><img src="generador_pdf/static/check.png" style="width: 12px; height: 12px; display: block; margin: auto;" /></td>
+      <td style="padding: 0;"></td>
+
+      <!-- Embalaje Cerrado -->
+      <td style="padding: 0;"><img src="generador_pdf/static/check.png" style="width: 12px; height: 12px; display: block; margin: auto;" /></td>
+      <td style="padding: 0;"></td>
+
+      <!-- Consigna Embalaje -->
+      <td style="padding: 0;"><img src="generador_pdf/static/check.png" style="width: 12px; height: 12px; display: block; margin: auto;" /></td>
+      <td style="padding: 0;"></td>
+
+      <!-- Condición de Almacen -->
+      <td style="padding: 2px;">{{ item.CondicionAlm }}</td>
+
+      <!-- Manchado -->
+      <td style="padding: 0;"><img src="generador_pdf/static/check.png" style="width: 12px; height: 12px; display: block; margin: auto;" /></td>
+      <td style="padding: 0;"></td>
+
+      <!-- Corresponde Documento -->
+      <td style="padding: 0;"><img src="generador_pdf/static/check.png" style="width: 12px; height: 12px; display: block; margin: auto;" /></td>
+      <td style="padding: 0;"></td>
+
+      <!-- Vehículo Adecuado -->
+      <td style="padding: 0;"><img src="generador_pdf/static/check.png" style="width: 12px; height: 12px; display: block; margin: auto;" /></td>
+      <td style="padding: 0;"></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<!-- Pie -->
+<table class="sin-borde">
+  <tr>
+    <td colspan="20" style="text-align:left;"><strong>OBSERVACIONES:</strong> NINGUNA</td>
+  </tr>
+  <tr>
+    <td colspan="20" align="center">
+      <img src="generador_pdf/static/FirmaAnthonyAuquipuma.png" style="width: 150px; display: block; margin: auto;" />
+    </td>
+  </tr>
+  <tr>
+    <td colspan="20" align="center">-------------------------------------------------</td>
+  </tr>
+  <tr>
+    <td colspan="20" align="center">RESPONSABLE DE ALMACÉN</td>
+  </tr>
+  <tr>
+    <td colspan="20" align="center">(sello y firma)</td>
+  </tr>
+  <tr>
+    <td colspan="20" style="padding:0; border:none;">
+      <table width="50%" style="margin: auto; padding-top: 20px; font-size: 7px; border-collapse: collapse;">
+        <tr>
+          <td style="color: black; border: solid 1px; border-color: black; font-size: 11px; text-align: center;">
+            Prohibido reproducir sin autorización de DROGUERÍA COBEFAR
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

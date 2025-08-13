@@ -1,0 +1,591 @@
+2025-08-11 10:40:12,065 [INFO] \U0001f4c5 Solicitud de migración para la fecha: 2025-05-03, tabla: *
+2025-08-11 10:40:12,073 [INFO] \u25b6 Iniciando migración de tabla OITM
+2025-08-11 10:40:12,180 [INFO] Conexión SAP HANA establecida
+2025-08-11 10:40:12,208 [INFO] Query ejecutada en HANA: SELECT T0."ItemCode", T0."ItemName", T0."FrgnName"...
+2025-08-11 10:40:12,403 [INFO] Conexión SAP HANA cerrada
+2025-08-11 10:40:12,496 [INFO] Conexión SQL Server establecida
+2025-08-11 10:40:12,932 [INFO] Conexión SQL Server cerrada
+2025-08-11 10:40:12,933 [INFO] \u2705 Tabla OITM migrada en 0.86 segundos
+2025-08-11 10:40:12,933 [INFO] \u25b6 Iniciando migración de tabla OWHS
+2025-08-11 10:40:12,973 [INFO] Conexión SAP HANA establecida
+2025-08-11 10:40:12,985 [INFO] Query ejecutada en HANA: 
+                SELECT  T0."WhsCode", T0."WhsName...
+2025-08-11 10:40:12,989 [INFO] Conexión SAP HANA cerrada
+2025-08-11 10:40:12,990 [INFO] Conexión SQL Server establecida
+2025-08-11 10:40:12,996 [INFO] Conexión SQL Server cerrada
+2025-08-11 10:40:12,996 [INFO] \u2705 Tabla OWHS migrada en 0.06 segundos
+2025-08-11 10:40:12,996 [INFO] \u25b6 Iniciando migración de tabla OWTR
+2025-08-11 10:40:13,037 [INFO] Conexión SAP HANA establecida
+2025-08-11 10:40:13,086 [INFO] Query ejecutada en HANA: 
+                SELECT T0."DocEntry", T0."DocNum"...
+2025-08-11 10:40:13,099 [INFO] Conexión SAP HANA cerrada
+2025-08-11 10:40:13,100 [INFO] Conexión SQL Server establecida
+2025-08-11 10:40:13,114 [INFO] Conexión SQL Server cerrada
+2025-08-11 10:40:13,114 [INFO] \u2705 Tabla OWTR migrada en 0.12 segundos
+2025-08-11 10:40:13,114 [INFO] \u25b6 Iniciando migración de tabla WTR1
+2025-08-11 10:40:13,184 [INFO] Conexión SAP HANA establecida
+2025-08-11 10:40:13,226 [INFO] Query ejecutada en HANA: 
+                SELECT T0."DocEntry", T0."LineNum...
+2025-08-11 10:40:13,265 [INFO] Conexión SAP HANA cerrada
+2025-08-11 10:40:13,265 [INFO] Conexión SQL Server establecida
+2025-08-11 10:40:13,331 [INFO] Conexión SQL Server cerrada
+2025-08-11 10:40:13,331 [INFO] \u2705 Tabla WTR1 migrada en 0.22 segundos
+2025-08-11 10:40:13,331 [INFO] \u25b6 Iniciando migración de tabla OITL
+2025-08-11 10:40:13,387 [INFO] Conexión SAP HANA establecida
+2025-08-11 10:40:19,138 [INFO] Query ejecutada en HANA: 
+                SELECT  T0."LogEntry", T0."ItemCo...
+2025-08-11 10:40:19,647 [INFO] Conexión SAP HANA cerrada
+2025-08-11 10:40:19,647 [INFO] Conexión SQL Server establecida
+2025-08-11 10:40:20,944 [INFO] Conexión SQL Server cerrada
+2025-08-11 10:40:20,946 [INFO] \u2705 Tabla OITL migrada en 7.61 segundos
+2025-08-11 10:40:20,946 [INFO] \u25b6 Iniciando migración de tabla ODLN
+2025-08-11 10:40:20,982 [INFO] Conexión SAP HANA establecida
+2025-08-11 10:40:21,058 [INFO] Query ejecutada en HANA: 
+                SELECT  T0."DocEntry", T0."ObjTyp...
+2025-08-11 10:40:21,081 [INFO] Conexión SAP HANA cerrada
+2025-08-11 10:40:21,081 [INFO] Conexión SQL Server establecida
+2025-08-11 10:40:21,104 [INFO] Conexión SQL Server cerrada
+2025-08-11 10:40:21,104 [INFO] \u2705 Tabla ODLN migrada en 0.16 segundos
+2025-08-11 10:40:21,104 [INFO] \u25b6 Iniciando migración de tabla OINV
+2025-08-11 10:40:21,388 [INFO] Conexión SAP HANA establecida
+2025-08-11 10:40:21,810 [INFO] Query ejecutada en HANA: 
+                SELECT  T0."DocEntry", T0."NumAtC...
+2025-08-11 10:40:21,829 [INFO] Conexión SAP HANA cerrada
+2025-08-11 10:40:21,830 [INFO] Conexión SQL Server establecida
+2025-08-11 10:40:21,851 [INFO] Conexión SQL Server cerrada
+2025-08-11 10:40:21,851 [INFO] \u2705 Tabla OINV migrada en 0.75 segundos
+2025-08-11 10:40:21,852 [INFO] \u25b6 Iniciando migración de tabla OBTW
+2025-08-11 10:40:21,888 [INFO] Conexión SAP HANA establecida
+2025-08-11 10:40:21,899 [INFO] Query ejecutada en HANA: 
+                SELECT T0."ItemCode", T0."MdAbsEn...
+2025-08-11 10:40:25,403 [INFO] Conexión SAP HANA cerrada
+2025-08-11 10:40:25,403 [INFO] Conexión SQL Server establecida
+2025-08-11 10:40:40,928 [INFO] Conexión SQL Server cerrada
+2025-08-11 10:40:40,944 [INFO] \u2705 Tabla OBTW migrada en 19.09 segundos
+2025-08-11 10:40:40,944 [INFO] \u25b6 Iniciando migración de tabla OBTN
+2025-08-11 10:40:40,980 [INFO] Conexión SAP HANA establecida
+2025-08-11 10:40:41,064 [INFO] Query ejecutada en HANA: 
+                SELECT T0."ItemCode", T0."DistNum...
+2025-08-11 10:40:41,588 [INFO] Conexión SAP HANA cerrada
+2025-08-11 10:40:41,589 [INFO] Conexión SQL Server establecida
+2025-08-11 10:40:42,669 [INFO] Conexión SQL Server cerrada
+2025-08-11 10:40:42,671 [INFO] \u2705 Tabla OBTN migrada en 1.73 segundos
+2025-08-11 10:40:42,671 [INFO] \u25b6 Iniciando migración de tabla ITL1
+2025-08-11 10:40:42,722 [INFO] Conexión SAP HANA establecida
+2025-08-11 10:40:53,580 [INFO] Query ejecutada en HANA: 
+                SELECT  T0."LogEntry", T0."ItemCo...
+2025-08-11 10:40:56,282 [INFO] Conexión SAP HANA cerrada
+2025-08-11 10:40:56,283 [INFO] Conexión SQL Server establecida
+2025-08-11 10:41:04,012 [INFO] Conexión SQL Server cerrada
+2025-08-11 10:41:04,027 [INFO] \u2705 Tabla ITL1 migrada en 21.36 segundos
+2025-08-11 10:41:04,027 [INFO] \u25b6 Iniciando migración de tabla DLN1
+2025-08-11 10:41:04,092 [INFO] Conexión SAP HANA establecida
+2025-08-11 10:41:04,134 [INFO] Query ejecutada en HANA: 
+                SELECT T0."DocEntry", T0."ObjType...
+2025-08-11 10:41:04,284 [INFO] Conexión SAP HANA cerrada
+2025-08-11 10:41:04,284 [INFO] Conexión SQL Server establecida
+2025-08-11 10:41:04,586 [INFO] Conexión SQL Server cerrada
+2025-08-11 10:41:04,586 [INFO] \u2705 Tabla DLN1 migrada en 0.56 segundos
+2025-08-11 10:41:04,587 [INFO] \u25b6 Iniciando migración de tabla INV1
+2025-08-11 10:41:04,623 [INFO] Conexión SAP HANA establecida
+2025-08-11 10:41:04,670 [INFO] Query ejecutada en HANA: 
+                SELECT  T0."DocEntry", T0."ObjTyp...
+2025-08-11 10:41:04,825 [INFO] Conexión SAP HANA cerrada
+2025-08-11 10:41:04,825 [INFO] Conexión SQL Server establecida
+2025-08-11 10:41:05,145 [INFO] Conexión SQL Server cerrada
+2025-08-11 10:41:05,145 [INFO] \u2705 Tabla INV1 migrada en 0.56 segundos
+2025-08-11 10:41:05,146 [INFO] \u25b6 Iniciando migración de tabla IBT1
+2025-08-11 10:41:05,207 [INFO] Conexión SAP HANA establecida
+2025-08-11 10:41:37,047 [INFO] Query ejecutada en HANA: 
+                SELECT T0."ItemCode", T0."BatchNu...
+2025-08-11 10:41:39,150 [INFO] Conexión SAP HANA cerrada
+2025-08-11 10:41:39,151 [INFO] Conexión SQL Server establecida
+2025-08-11 10:41:40,824 [INFO] Conexión SQL Server cerrada
+2025-08-11 10:41:40,827 [INFO] \u2705 Tabla IBT1 migrada en 35.68 segundos
+2025-08-11 10:41:40,827 [INFO] \U0001f3c1 Migración completada
+2025-08-11 10:44:12,924 [INFO] \u27a1 Fecha recibida: 2025-05-03
+2025-08-11 10:44:12,976 [INFO] Conexión SQL Server establecida
+2025-08-11 10:44:12,977 [INFO] \U0001f4e6 Ejecutando SP: LISTADO_DOC_DESPACHO_TRASLADOS '2025-05-03'
+2025-08-11 10:44:13,093 [INFO] \u27a1 DocEntries encontrados: []
+2025-08-11 10:44:13,093 [INFO] Conexión SQL Server cerrada
+2025-08-11 10:44:13,094 [INFO] \U0001f3c1 Proceso finalizado. Total PDFs: 0
+2025-08-11 10:49:00,732 [INFO] \U0001f50d Verificando migración para fecha: 2025-04-17, grupo: traslados
+2025-08-11 10:49:00,822 [INFO] Conexión SQL Server establecida
+2025-08-11 10:49:00,823 [INFO] Conexión SQL Server cerrada
+2025-08-11 10:49:00,823 [ERROR] \u274c Error verificando migración: 'pyodbc.Cursor' object is not callable
+2025-08-11 10:49:16,436 [INFO] \U0001f4c5 Solicitud de migración para la fecha: 2025-04-17, tabla: *
+2025-08-11 10:49:16,440 [INFO] \u25b6 Iniciando migración de tabla OITM
+2025-08-11 10:49:16,503 [INFO] Conexión SAP HANA establecida
+2025-08-11 10:49:16,522 [INFO] Query ejecutada en HANA: SELECT T0."ItemCode", T0."ItemName", T0."FrgnName"...
+2025-08-11 10:49:16,737 [INFO] Conexión SAP HANA cerrada
+2025-08-11 10:49:16,755 [INFO] Conexión SQL Server establecida
+2025-08-11 10:49:17,769 [INFO] Conexión SQL Server cerrada
+2025-08-11 10:49:17,770 [INFO] \u2705 Tabla OITM migrada en 1.33 segundos
+2025-08-11 10:49:17,770 [INFO] \u25b6 Iniciando migración de tabla OWHS
+2025-08-11 10:49:17,834 [INFO] Conexión SAP HANA establecida
+2025-08-11 10:49:17,837 [INFO] Query ejecutada en HANA: 
+                SELECT  T0."WhsCode", T0."WhsName...
+2025-08-11 10:49:17,843 [INFO] Conexión SAP HANA cerrada
+2025-08-11 10:49:17,844 [INFO] Conexión SQL Server establecida
+2025-08-11 10:49:17,901 [INFO] Conexión SQL Server cerrada
+2025-08-11 10:49:17,902 [INFO] \u2705 Tabla OWHS migrada en 0.13 segundos
+2025-08-11 10:49:17,902 [INFO] \u25b6 Iniciando migración de tabla OWTR
+2025-08-11 10:49:17,954 [INFO] Conexión SAP HANA establecida
+2025-08-11 10:49:17,988 [INFO] Query ejecutada en HANA: 
+                SELECT T0."DocEntry", T0."DocNum"...
+2025-08-11 10:49:17,990 [INFO] Conexión SAP HANA cerrada
+2025-08-11 10:49:17,991 [INFO] \u2705 Tabla OWTR migrada en 0.09 segundos
+2025-08-11 10:49:17,991 [INFO] \u25b6 Iniciando migración de tabla WTR1
+2025-08-11 10:49:18,050 [INFO] Conexión SAP HANA establecida
+2025-08-11 10:49:18,091 [INFO] Query ejecutada en HANA: 
+                SELECT T0."DocEntry", T0."LineNum...
+2025-08-11 10:49:18,093 [INFO] Conexión SAP HANA cerrada
+2025-08-11 10:49:18,093 [INFO] \u2705 Tabla WTR1 migrada en 0.1 segundos
+2025-08-11 10:49:18,093 [INFO] \u25b6 Iniciando migración de tabla OITL
+2025-08-11 10:49:18,137 [INFO] Conexión SAP HANA establecida
+2025-08-11 10:49:18,153 [INFO] Query ejecutada en HANA: 
+                SELECT  T0."LogEntry", T0."ItemCo...
+2025-08-11 10:49:18,156 [INFO] Conexión SAP HANA cerrada
+2025-08-11 10:49:18,156 [INFO] Conexión SQL Server establecida
+2025-08-11 10:49:18,166 [INFO] Conexión SQL Server cerrada
+2025-08-11 10:49:18,166 [INFO] \u2705 Tabla OITL migrada en 0.07 segundos
+2025-08-11 10:49:18,166 [INFO] \u25b6 Iniciando migración de tabla ODLN
+2025-08-11 10:49:18,204 [INFO] Conexión SAP HANA establecida
+2025-08-11 10:49:18,244 [INFO] Query ejecutada en HANA: 
+                SELECT  T0."DocEntry", T0."ObjTyp...
+2025-08-11 10:49:18,247 [INFO] Conexión SAP HANA cerrada
+2025-08-11 10:49:18,247 [INFO] \u2705 Tabla ODLN migrada en 0.08 segundos
+2025-08-11 10:49:18,248 [INFO] \u25b6 Iniciando migración de tabla OINV
+2025-08-11 10:49:18,298 [INFO] Conexión SAP HANA establecida
+2025-08-11 10:49:18,323 [INFO] Query ejecutada en HANA: 
+                SELECT  T0."DocEntry", T0."NumAtC...
+2025-08-11 10:49:18,325 [INFO] Conexión SAP HANA cerrada
+2025-08-11 10:49:18,325 [INFO] \u2705 Tabla OINV migrada en 0.08 segundos
+2025-08-11 10:49:18,325 [INFO] \u25b6 Iniciando migración de tabla OBTW
+2025-08-11 10:49:18,387 [INFO] Conexión SAP HANA establecida
+2025-08-11 10:49:18,389 [INFO] Query ejecutada en HANA: 
+                SELECT T0."ItemCode", T0."MdAbsEn...
+2025-08-11 10:49:22,726 [INFO] Conexión SAP HANA cerrada
+2025-08-11 10:49:22,727 [INFO] Conexión SQL Server establecida
+2025-08-11 10:49:36,509 [INFO] Conexión SQL Server cerrada
+2025-08-11 10:49:36,538 [INFO] \u2705 Tabla OBTW migrada en 18.21 segundos
+2025-08-11 10:49:36,538 [INFO] \u25b6 Iniciando migración de tabla OBTN
+2025-08-11 10:49:36,932 [INFO] Conexión SAP HANA establecida
+2025-08-11 10:49:36,976 [INFO] Query ejecutada en HANA: 
+                SELECT T0."ItemCode", T0."DistNum...
+2025-08-11 10:49:37,644 [INFO] Conexión SAP HANA cerrada
+2025-08-11 10:49:37,645 [INFO] Conexión SQL Server establecida
+2025-08-11 10:49:38,823 [INFO] Conexión SQL Server cerrada
+2025-08-11 10:49:38,825 [INFO] \u2705 Tabla OBTN migrada en 2.29 segundos
+2025-08-11 10:49:38,825 [INFO] \u25b6 Iniciando migración de tabla ITL1
+2025-08-11 10:49:38,893 [INFO] Conexión SAP HANA establecida
+2025-08-11 10:49:39,017 [INFO] Query ejecutada en HANA: 
+                SELECT  T0."LogEntry", T0."ItemCo...
+2025-08-11 10:49:57,405 [INFO] Conexión SAP HANA cerrada
+2025-08-11 10:49:57,406 [INFO] Conexión SQL Server establecida
+2025-08-11 10:50:49,502 [INFO] Conexión SQL Server cerrada
+2025-08-11 10:50:49,626 [INFO] \u2705 Tabla ITL1 migrada en 70.8 segundos
+2025-08-11 10:50:49,626 [INFO] \u25b6 Iniciando migración de tabla DLN1
+2025-08-11 10:50:49,681 [INFO] Conexión SAP HANA establecida
+2025-08-11 10:50:49,719 [INFO] Query ejecutada en HANA: 
+                SELECT T0."DocEntry", T0."ObjType...
+2025-08-11 10:50:49,723 [INFO] Conexión SAP HANA cerrada
+2025-08-11 10:50:49,724 [INFO] \u2705 Tabla DLN1 migrada en 0.1 segundos
+2025-08-11 10:50:49,724 [INFO] \u25b6 Iniciando migración de tabla INV1
+2025-08-11 10:50:49,791 [INFO] Conexión SAP HANA establecida
+2025-08-11 10:50:49,827 [INFO] Query ejecutada en HANA: 
+                SELECT  T0."DocEntry", T0."ObjTyp...
+2025-08-11 10:50:49,830 [INFO] Conexión SAP HANA cerrada
+2025-08-11 10:50:49,830 [INFO] \u2705 Tabla INV1 migrada en 0.11 segundos
+2025-08-11 10:50:49,830 [INFO] \u25b6 Iniciando migración de tabla IBT1
+2025-08-11 10:50:49,899 [INFO] Conexión SAP HANA establecida
+2025-08-11 10:51:24,923 [INFO] Query ejecutada en HANA: 
+                SELECT T0."ItemCode", T0."BatchNu...
+2025-08-11 10:51:24,938 [INFO] Conexión SAP HANA cerrada
+2025-08-11 10:51:24,939 [INFO] Conexión SQL Server establecida
+2025-08-11 10:51:24,952 [INFO] Conexión SQL Server cerrada
+2025-08-11 10:51:24,952 [INFO] \u2705 Tabla IBT1 migrada en 35.12 segundos
+2025-08-11 10:51:24,953 [INFO] \U0001f3c1 Migración completada
+2025-08-11 10:52:08,397 [INFO] \U0001f50d Verificando migración para fecha: 2025-04-11, grupo: traslados
+2025-08-11 10:52:08,534 [INFO] Conexión SQL Server establecida
+2025-08-11 10:52:08,535 [INFO] Conexión SQL Server cerrada
+2025-08-11 10:52:08,535 [ERROR] \u274c Error verificando migración: 'pyodbc.Cursor' object is not callable
+2025-08-11 10:54:30,776 [INFO] \U0001f50d Verificando migración para fecha: 2025-05-03, grupo: traslados
+2025-08-11 10:54:30,796 [INFO] Conexión SQL Server establecida
+2025-08-11 10:54:30,796 [INFO] Conexión SQL Server cerrada
+2025-08-11 10:54:30,796 [ERROR] \u274c Error verificando migración: 'pyodbc.Cursor' object is not callable
+2025-08-11 15:14:24,467 [INFO] \U0001f50d Verificando migración para fecha: 2025-05-03, grupo: traslados
+2025-08-11 15:14:24,562 [INFO] Conexión SQL Server establecida
+2025-08-11 15:14:24,563 [INFO] Conexión SQL Server cerrada
+2025-08-11 15:14:24,563 [ERROR] \u274c Error verificando migración: 'pyodbc.Cursor' object is not callable
+2025-08-11 15:18:33,900 [INFO] \U0001f50d Verificando migración para fecha: 2025-05-03, grupo: traslados
+2025-08-11 15:18:33,984 [INFO] Conexión SQL Server establecida
+2025-08-11 15:18:33,988 [INFO] \u2714 Resultado verificación: Datos ya migrados para 2025-05-03
+2025-08-11 15:18:33,989 [INFO] Conexión SQL Server cerrada
+2025-08-11 15:18:44,670 [INFO] \u27a1 Fecha recibida: 2025-05-03
+2025-08-11 15:18:44,671 [INFO] Conexión SQL Server establecida
+2025-08-11 15:18:44,671 [INFO] \U0001f4e6 Ejecutando SP: LISTADO_DOC_DESPACHO_TRASLADOS '2025-05-03'
+2025-08-11 15:18:45,639 [INFO] \u27a1 DocEntries encontrados: []
+2025-08-11 15:18:45,640 [INFO] Conexión SQL Server cerrada
+2025-08-11 15:18:45,640 [INFO] \U0001f3c1 Proceso finalizado. Total PDFs: 0
+2025-08-11 15:21:49,874 [INFO] \u27a1 Fecha recibida: 2025-05-03
+2025-08-11 15:21:49,905 [INFO] Conexión SQL Server establecida
+2025-08-11 15:21:49,906 [INFO] \U0001f4e6 Ejecutando SP: LISTADO_DOC_DESPACHO_TRASLADOS '2025-05-03'
+2025-08-11 15:21:49,963 [INFO] \u27a1 DocEntries encontrados: []
+2025-08-11 15:21:49,964 [INFO] Conexión SQL Server cerrada
+2025-08-11 15:21:49,965 [INFO] \U0001f3c1 Proceso finalizado. Total PDFs: 0
+2025-08-11 15:21:56,989 [INFO] \U0001f50d Verificando migración para fecha: 2025-05-02, grupo: traslados
+2025-08-11 15:21:56,990 [INFO] Conexión SQL Server establecida
+2025-08-11 15:21:57,001 [INFO] \u2714 Resultado verificación: Datos no migrados para 2025-05-02
+2025-08-11 15:21:57,002 [INFO] Conexión SQL Server cerrada
+2025-08-11 15:22:01,409 [INFO] \U0001f50d Verificando migración para fecha: 2025-05-03, grupo: traslados
+2025-08-11 15:22:01,413 [INFO] Conexión SQL Server establecida
+2025-08-11 15:22:01,416 [INFO] \u2714 Resultado verificación: Datos ya migrados para 2025-05-03
+2025-08-11 15:22:01,416 [INFO] Conexión SQL Server cerrada
+2025-08-11 15:23:42,746 [INFO] \U0001f50d Verificando migración para fecha: 2025-05-02, grupo: traslados
+2025-08-11 15:23:42,842 [INFO] Conexión SQL Server establecida
+2025-08-11 15:23:42,845 [INFO] \u2714 Resultado verificación: Datos no migrados para 2025-05-02
+2025-08-11 15:23:42,846 [INFO] Conexión SQL Server cerrada
+2025-08-11 15:23:43,620 [INFO] \U0001f4e6 Iniciando migración de traslados para fecha: 2025-05-02
+2025-08-11 15:23:43,623 [INFO] \u25b6 Migrando tabla OWTR
+2025-08-11 15:23:43,623 [ERROR] \u274c Error migrando OWTR: 'MigradorTraslado' object has no attribute 'migrar_tabla'
+2025-08-11 15:23:43,623 [INFO] \u25b6 Migrando tabla WTR1
+2025-08-11 15:23:43,623 [ERROR] \u274c Error migrando WTR1: 'MigradorTraslado' object has no attribute 'migrar_tabla'
+2025-08-11 15:23:43,623 [INFO] \u25b6 Migrando tabla OITL
+2025-08-11 15:23:43,623 [ERROR] \u274c Error migrando OITL: 'MigradorTraslado' object has no attribute 'migrar_tabla'
+2025-08-11 15:23:43,623 [INFO] \u25b6 Migrando tabla OBTW
+2025-08-11 15:23:43,623 [ERROR] \u274c Error migrando OBTW: 'MigradorTraslado' object has no attribute 'migrar_tabla'
+2025-08-11 15:23:43,624 [INFO] \u25b6 Migrando tabla OBTN
+2025-08-11 15:23:43,624 [ERROR] \u274c Error migrando OBTN: 'MigradorTraslado' object has no attribute 'migrar_tabla'
+2025-08-11 15:23:43,624 [INFO] \u25b6 Migrando tabla ITL1
+2025-08-11 15:23:43,624 [ERROR] \u274c Error migrando ITL1: 'MigradorTraslado' object has no attribute 'migrar_tabla'
+2025-08-11 15:23:43,624 [INFO] \u25b6 Migrando tabla IBT1
+2025-08-11 15:23:43,624 [ERROR] \u274c Error migrando IBT1: 'MigradorTraslado' object has no attribute 'migrar_tabla'
+2025-08-11 15:23:43,624 [INFO] \U0001f3c1 Migración de traslado completada
+2025-08-11 15:23:59,050 [INFO] \U0001f50d Verificando migración para fecha: 2025-05-01, grupo: traslados
+2025-08-11 15:23:59,051 [INFO] Conexión SQL Server establecida
+2025-08-11 15:23:59,051 [INFO] \u2714 Resultado verificación: Datos no migrados para 2025-05-01
+2025-08-11 15:23:59,052 [INFO] Conexión SQL Server cerrada
+2025-08-11 15:24:01,154 [INFO] \U0001f4e6 Iniciando migración de traslados para fecha: 2025-05-01
+2025-08-11 15:24:01,154 [INFO] \u25b6 Migrando tabla OWTR
+2025-08-11 15:24:01,154 [ERROR] \u274c Error migrando OWTR: 'MigradorTraslado' object has no attribute 'migrar_tabla'
+2025-08-11 15:24:01,154 [INFO] \u25b6 Migrando tabla WTR1
+2025-08-11 15:24:01,154 [ERROR] \u274c Error migrando WTR1: 'MigradorTraslado' object has no attribute 'migrar_tabla'
+2025-08-11 15:24:01,154 [INFO] \u25b6 Migrando tabla OITL
+2025-08-11 15:24:01,154 [ERROR] \u274c Error migrando OITL: 'MigradorTraslado' object has no attribute 'migrar_tabla'
+2025-08-11 15:24:01,154 [INFO] \u25b6 Migrando tabla OBTW
+2025-08-11 15:24:01,154 [ERROR] \u274c Error migrando OBTW: 'MigradorTraslado' object has no attribute 'migrar_tabla'
+2025-08-11 15:24:01,154 [INFO] \u25b6 Migrando tabla OBTN
+2025-08-11 15:24:01,154 [ERROR] \u274c Error migrando OBTN: 'MigradorTraslado' object has no attribute 'migrar_tabla'
+2025-08-11 15:24:01,154 [INFO] \u25b6 Migrando tabla ITL1
+2025-08-11 15:24:01,154 [ERROR] \u274c Error migrando ITL1: 'MigradorTraslado' object has no attribute 'migrar_tabla'
+2025-08-11 15:24:01,154 [INFO] \u25b6 Migrando tabla IBT1
+2025-08-11 15:24:01,155 [ERROR] \u274c Error migrando IBT1: 'MigradorTraslado' object has no attribute 'migrar_tabla'
+2025-08-11 15:24:01,155 [INFO] \U0001f3c1 Migración de traslado completada
+2025-08-11 15:27:38,604 [INFO] \U0001f50d Verificando migración para fecha: 2025-05-03, grupo: traslados
+2025-08-11 15:27:38,758 [INFO] Conexión SQL Server establecida
+2025-08-11 15:27:38,763 [INFO] \u2714 Resultado verificación: Datos ya migrados para 2025-05-03
+2025-08-11 15:27:38,765 [INFO] Conexión SQL Server cerrada
+2025-08-11 15:27:43,653 [INFO] \U0001f50d Verificando migración para fecha: 2025-05-01, grupo: traslados
+2025-08-11 15:27:43,654 [INFO] Conexión SQL Server establecida
+2025-08-11 15:27:43,654 [INFO] \u2714 Resultado verificación: Datos no migrados para 2025-05-01
+2025-08-11 15:27:43,654 [INFO] Conexión SQL Server cerrada
+2025-08-11 15:27:44,637 [INFO] \U0001f4e6 Iniciando migración de traslados para fecha: 2025-05-01
+2025-08-11 15:27:44,640 [INFO] \u25b6 Migrando tabla OWTR
+2025-08-11 15:27:44,763 [INFO] Conexión SAP HANA establecida
+2025-08-11 15:27:44,798 [INFO] Query ejecutada en HANA: 
+                SELECT T0."DocEntry", T0."DocNum"...
+2025-08-11 15:27:44,801 [INFO] Conexión SAP HANA cerrada
+2025-08-11 15:27:44,801 [INFO] \u25b6 Migrando tabla WTR1
+2025-08-11 15:27:44,867 [INFO] Conexión SAP HANA establecida
+2025-08-11 15:27:44,916 [INFO] Query ejecutada en HANA: 
+                SELECT T0."DocEntry", T0."LineNum...
+2025-08-11 15:27:44,919 [INFO] Conexión SAP HANA cerrada
+2025-08-11 15:27:44,919 [INFO] \u25b6 Migrando tabla OITL
+2025-08-11 15:27:44,976 [INFO] Conexión SAP HANA establecida
+2025-08-11 15:27:45,016 [INFO] Query ejecutada en HANA: 
+                SELECT  T0."LogEntry", T0."ItemCo...
+2025-08-11 15:27:45,070 [INFO] Conexión SAP HANA cerrada
+2025-08-11 15:27:45,074 [INFO] Conexión SQL Server establecida
+2025-08-11 15:27:45,113 [INFO] Conexión SQL Server cerrada
+2025-08-11 15:27:45,114 [INFO] \u25b6 Migrando tabla OBTW
+2025-08-11 15:27:45,167 [INFO] Conexión SAP HANA establecida
+2025-08-11 15:27:45,170 [INFO] Query ejecutada en HANA: 
+                SELECT T0."ItemCode", T0."MdAbsEn...
+2025-08-11 15:27:49,424 [INFO] Conexión SAP HANA cerrada
+2025-08-11 15:27:49,425 [INFO] Conexión SQL Server establecida
+2025-08-11 15:28:01,892 [INFO] Conexión SQL Server cerrada
+2025-08-11 15:28:01,909 [INFO] \u25b6 Migrando tabla OBTN
+2025-08-11 15:28:01,965 [INFO] Conexión SAP HANA establecida
+2025-08-11 15:28:02,003 [INFO] Query ejecutada en HANA: 
+                SELECT T0."ItemCode", T0."DistNum...
+2025-08-11 15:28:02,550 [INFO] Conexión SAP HANA cerrada
+2025-08-11 15:28:02,550 [INFO] Conexión SQL Server establecida
+2025-08-11 15:28:03,644 [INFO] Conexión SQL Server cerrada
+2025-08-11 15:28:03,645 [INFO] \u25b6 Migrando tabla ITL1
+2025-08-11 15:28:03,677 [INFO] Conexión SAP HANA establecida
+2025-08-11 15:28:03,737 [INFO] Query ejecutada en HANA: 
+                SELECT  T0."LogEntry", T0."ItemCo...
+2025-08-11 15:28:07,710 [INFO] Conexión SAP HANA cerrada
+2025-08-11 15:28:07,711 [INFO] Conexión SQL Server establecida
+2025-08-11 15:28:19,658 [INFO] Conexión SQL Server cerrada
+2025-08-11 15:28:19,682 [INFO] \u25b6 Migrando tabla IBT1
+2025-08-11 15:28:19,723 [INFO] Conexión SAP HANA establecida
+2025-08-11 15:28:52,632 [INFO] Query ejecutada en HANA: 
+                SELECT T0."ItemCode", T0."BatchNu...
+2025-08-11 15:28:54,114 [INFO] Conexión SAP HANA cerrada
+2025-08-11 15:28:54,115 [INFO] Conexión SQL Server establecida
+2025-08-11 15:28:54,142 [INFO] Conexión SQL Server cerrada
+2025-08-11 15:28:54,143 [INFO] \U0001f3c1 Migración de traslado completada
+2025-08-11 15:34:54,696 [INFO] \u27a1 Fecha recibida: 2025-05-01
+2025-08-11 15:34:54,719 [INFO] Conexión SQL Server establecida
+2025-08-11 15:34:54,719 [INFO] \U0001f4e6 Ejecutando SP: LISTADO_DOC_DESPACHO_TRASLADOS '2025-05-01'
+2025-08-11 15:34:54,792 [INFO] \u27a1 DocEntries encontrados: []
+2025-08-11 15:34:54,793 [INFO] Conexión SQL Server cerrada
+2025-08-11 15:34:54,793 [INFO] \U0001f3c1 Proceso finalizado. Total PDFs: 0
+2025-08-11 15:34:56,177 [INFO] \u27a1 Fecha recibida: 2025-05-01
+2025-08-11 15:34:56,178 [INFO] Conexión SQL Server establecida
+2025-08-11 15:34:56,178 [INFO] \U0001f4e6 Ejecutando SP: LISTADO_DOC_DESPACHO_TRASLADOS '2025-05-01'
+2025-08-11 15:34:56,180 [INFO] \u27a1 DocEntries encontrados: []
+2025-08-11 15:34:56,182 [INFO] Conexión SQL Server cerrada
+2025-08-11 15:34:56,182 [INFO] \U0001f3c1 Proceso finalizado. Total PDFs: 0
+2025-08-11 15:55:19,429 [INFO] \U0001f50d Verificando migración para fecha: 2025-05-01, grupo: traslados
+2025-08-11 15:55:19,457 [INFO] Conexión SQL Server establecida
+2025-08-11 15:55:19,461 [INFO] \u2714 Resultado verificación: Datos no migrados para 2025-05-01
+2025-08-11 15:55:19,463 [INFO] Conexión SQL Server cerrada
+2025-08-11 15:55:21,963 [INFO] \U0001f50d Verificando migración para fecha: 2025-05-02, grupo: traslados
+2025-08-11 15:55:21,964 [INFO] Conexión SQL Server establecida
+2025-08-11 15:55:21,965 [INFO] \u2714 Resultado verificación: Datos no migrados para 2025-05-02
+2025-08-11 15:55:21,966 [INFO] Conexión SQL Server cerrada
+2025-08-11 15:55:24,037 [INFO] \U0001f50d Verificando migración para fecha: 2025-05-03, grupo: traslados
+2025-08-11 15:55:24,038 [INFO] Conexión SQL Server establecida
+2025-08-11 15:55:24,039 [INFO] \u2714 Resultado verificación: Datos ya migrados para 2025-05-03
+2025-08-11 15:55:24,039 [INFO] Conexión SQL Server cerrada
+2025-08-11 15:55:28,078 [INFO] \U0001f50d Verificando migración para fecha: 2025-05-02, grupo: traslados
+2025-08-11 15:55:28,079 [INFO] Conexión SQL Server establecida
+2025-08-11 15:55:28,079 [INFO] \u2714 Resultado verificación: Datos no migrados para 2025-05-02
+2025-08-11 15:55:28,080 [INFO] Conexión SQL Server cerrada
+2025-08-11 15:55:30,146 [INFO] \U0001f4e6 Iniciando migración de traslados para fecha: 2025-05-02
+2025-08-11 15:55:30,146 [INFO] \u25b6 Migrando tabla OWTR
+2025-08-11 15:55:31,476 [INFO] Conexión SAP HANA establecida
+2025-08-11 15:55:31,518 [INFO] Query ejecutada en HANA: 
+                SELECT T0."DocEntry", T0."DocNum"...
+2025-08-11 15:55:31,543 [INFO] Conexión SAP HANA cerrada
+2025-08-11 15:55:31,543 [INFO] Conexión SQL Server establecida
+2025-08-11 15:55:31,572 [INFO] Conexión SQL Server cerrada
+2025-08-11 15:55:31,572 [INFO] \u25b6 Migrando tabla WTR1
+2025-08-11 15:55:32,650 [INFO] Conexión SAP HANA establecida
+2025-08-11 15:55:32,718 [INFO] Query ejecutada en HANA: 
+                SELECT T0."DocEntry", T0."LineNum...
+2025-08-11 15:55:32,793 [INFO] Conexión SAP HANA cerrada
+2025-08-11 15:55:32,793 [INFO] Conexión SQL Server establecida
+2025-08-11 15:55:32,941 [INFO] Conexión SQL Server cerrada
+2025-08-11 15:55:32,941 [INFO] \u25b6 Migrando tabla OITL
+2025-08-11 15:55:32,988 [INFO] Conexión SAP HANA establecida
+2025-08-11 15:55:33,012 [INFO] Query ejecutada en HANA: 
+                SELECT  T0."LogEntry", T0."ItemCo...
+2025-08-11 15:55:34,036 [INFO] Conexión SAP HANA cerrada
+2025-08-11 15:55:34,037 [INFO] Conexión SQL Server establecida
+2025-08-11 15:55:36,912 [INFO] Conexión SQL Server cerrada
+2025-08-11 15:55:36,914 [INFO] \u25b6 Migrando tabla OBTW
+2025-08-11 15:55:36,952 [INFO] Conexión SAP HANA establecida
+2025-08-11 15:55:36,955 [INFO] Query ejecutada en HANA: 
+                SELECT T0."ItemCode", T0."MdAbsEn...
+2025-08-11 15:55:40,390 [INFO] Conexión SAP HANA cerrada
+2025-08-11 15:55:40,390 [INFO] Conexión SQL Server establecida
+2025-08-11 15:55:56,185 [INFO] Conexión SQL Server cerrada
+2025-08-11 15:55:56,200 [INFO] \u25b6 Migrando tabla OBTN
+2025-08-11 15:55:56,318 [INFO] Conexión SAP HANA establecida
+2025-08-11 15:55:56,357 [INFO] Query ejecutada en HANA: 
+                SELECT T0."ItemCode", T0."DistNum...
+2025-08-11 15:55:56,858 [INFO] Conexión SAP HANA cerrada
+2025-08-11 15:55:56,858 [INFO] Conexión SQL Server establecida
+2025-08-11 15:55:57,953 [INFO] Conexión SQL Server cerrada
+2025-08-11 15:55:57,955 [INFO] \u25b6 Migrando tabla ITL1
+2025-08-11 15:55:57,992 [INFO] Conexión SAP HANA establecida
+2025-08-11 15:55:58,623 [INFO] Query ejecutada en HANA: 
+                SELECT  T0."LogEntry", T0."ItemCo...
+2025-08-11 15:56:01,603 [INFO] Conexión SAP HANA cerrada
+2025-08-11 15:56:01,603 [INFO] Conexión SQL Server establecida
+2025-08-11 15:56:09,919 [INFO] Conexión SQL Server cerrada
+2025-08-11 15:56:09,927 [INFO] \u25b6 Migrando tabla IBT1
+2025-08-11 15:56:09,961 [INFO] Conexión SAP HANA establecida
+2025-08-11 15:56:44,289 [INFO] Query ejecutada en HANA: 
+                SELECT T0."ItemCode", T0."BatchNu...
+2025-08-11 15:56:46,947 [INFO] Conexión SAP HANA cerrada
+2025-08-11 15:56:46,948 [INFO] Conexión SQL Server establecida
+2025-08-11 15:56:49,584 [INFO] Conexión SQL Server cerrada
+2025-08-11 15:56:49,589 [INFO] \U0001f3c1 Migración de traslado completada
+2025-08-11 16:03:05,167 [INFO] \U0001f50d Verificando migración para fecha: 2025-05-03, grupo: traslados
+2025-08-11 16:03:05,273 [INFO] Conexión SQL Server establecida
+2025-08-11 16:03:05,277 [INFO] \u2714 Resultado verificación: Datos no migrados para 2025-05-03
+2025-08-11 16:03:05,279 [INFO] Conexión SQL Server cerrada
+2025-08-11 16:03:07,478 [INFO] \U0001f50d Verificando migración para fecha: 2025-05-02, grupo: traslados
+2025-08-11 16:03:07,479 [INFO] Conexión SQL Server establecida
+2025-08-11 16:03:07,479 [INFO] \u2714 Resultado verificación: Datos ya migrados para 2025-05-02
+2025-08-11 16:03:07,480 [INFO] Conexión SQL Server cerrada
+2025-08-11 16:35:37,862 [INFO] \U0001f50d Verificando migración para fecha: 2025-05-01, grupo: traslados
+2025-08-11 16:35:37,888 [INFO] Conexión SQL Server establecida
+2025-08-11 16:35:37,897 [INFO] \u2714 Resultado verificación: Datos no migrados para 2025-05-01
+2025-08-11 16:35:37,899 [INFO] Conexión SQL Server cerrada
+2025-08-11 16:35:44,756 [INFO] \U0001f50d Verificando migración para fecha: 2025-05-02, grupo: traslados
+2025-08-11 16:35:44,757 [INFO] Conexión SQL Server establecida
+2025-08-11 16:35:44,757 [INFO] \u2714 Resultado verificación: Datos ya migrados para 2025-05-02
+2025-08-11 16:35:44,758 [INFO] Conexión SQL Server cerrada
+2025-08-11 16:35:59,444 [INFO] \U0001f50d Verificando migración para fecha: 2025-05-01, grupo: traslados
+2025-08-11 16:35:59,445 [INFO] Conexión SQL Server establecida
+2025-08-11 16:35:59,446 [INFO] \u2714 Resultado verificación: Datos no migrados para 2025-05-01
+2025-08-11 16:35:59,447 [INFO] Conexión SQL Server cerrada
+2025-08-11 16:36:00,863 [INFO] \U0001f4e6 Iniciando migración de traslados para fecha: 2025-05-01
+2025-08-11 16:36:00,866 [INFO] \u25b6 Migrando tabla OWTR
+2025-08-11 16:36:00,935 [INFO] Conexión SAP HANA establecida
+2025-08-11 16:36:00,939 [INFO] Query ejecutada en HANA: 
+                SELECT T0."DocEntry", T0."DocNum"...
+2025-08-11 16:36:00,942 [INFO] Conexión SAP HANA cerrada
+2025-08-11 16:36:00,942 [INFO] \u25b6 Migrando tabla WTR1
+2025-08-11 16:36:01,011 [INFO] Conexión SAP HANA establecida
+2025-08-11 16:36:01,014 [INFO] Query ejecutada en HANA: 
+                SELECT T0."DocEntry", T0."LineNum...
+2025-08-11 16:36:01,018 [INFO] Conexión SAP HANA cerrada
+2025-08-11 16:36:01,018 [INFO] \u25b6 Migrando tabla OITL
+2025-08-11 16:36:01,071 [INFO] Conexión SAP HANA establecida
+2025-08-11 16:36:01,078 [INFO] Query ejecutada en HANA: 
+                SELECT  T0."LogEntry", T0."ItemCo...
+2025-08-11 16:36:01,092 [INFO] Conexión SAP HANA cerrada
+2025-08-11 16:36:01,092 [INFO] Conexión SQL Server establecida
+2025-08-11 16:36:01,135 [INFO] Conexión SQL Server cerrada
+2025-08-11 16:36:01,135 [INFO] \u25b6 Migrando tabla OBTW
+2025-08-11 16:36:01,185 [INFO] Conexión SAP HANA establecida
+2025-08-11 16:36:01,187 [INFO] Query ejecutada en HANA: 
+                SELECT T0."ItemCode", T0."MdAbsEn...
+2025-08-11 16:36:05,199 [INFO] Conexión SAP HANA cerrada
+2025-08-11 16:36:05,200 [INFO] Conexión SQL Server establecida
+2025-08-11 16:36:22,155 [INFO] Conexión SQL Server cerrada
+2025-08-11 16:36:22,174 [INFO] \u25b6 Migrando tabla OBTN
+2025-08-11 16:36:22,218 [INFO] Conexión SAP HANA establecida
+2025-08-11 16:36:22,250 [INFO] Query ejecutada en HANA: 
+                SELECT T0."ItemCode", T0."DistNum...
+2025-08-11 16:36:22,838 [INFO] Conexión SAP HANA cerrada
+2025-08-11 16:36:22,839 [INFO] Conexión SQL Server establecida
+2025-08-11 16:36:23,970 [INFO] Conexión SQL Server cerrada
+2025-08-11 16:36:23,972 [INFO] \u25b6 Migrando tabla ITL1
+2025-08-11 16:36:24,022 [INFO] Conexión SAP HANA establecida
+2025-08-11 16:36:25,175 [INFO] Query ejecutada en HANA: 
+                SELECT  T0."LogEntry", T0."ItemCo...
+2025-08-11 16:36:29,935 [INFO] Conexión SAP HANA cerrada
+2025-08-11 16:36:29,936 [INFO] Conexión SQL Server establecida
+2025-08-11 16:36:43,036 [INFO] Conexión SQL Server cerrada
+2025-08-11 16:36:43,067 [INFO] \u25b6 Migrando tabla IBT1
+2025-08-11 16:36:43,188 [INFO] Conexión SAP HANA establecida
+2025-08-11 16:37:23,630 [INFO] Query ejecutada en HANA: 
+                SELECT T0."ItemCode", T0."BatchNu...
+2025-08-11 16:37:25,215 [INFO] Conexión SAP HANA cerrada
+2025-08-11 16:37:25,216 [INFO] Conexión SQL Server establecida
+2025-08-11 16:37:25,242 [INFO] Conexión SQL Server cerrada
+2025-08-11 16:37:25,243 [INFO] \U0001f3c1 Migración de traslado completada
+2025-08-11 16:54:46,644 [INFO] \U0001f50d Verificando migración para fecha: 2025-05-01, grupo: traslados
+2025-08-11 16:54:46,733 [INFO] Conexión SQL Server establecida
+2025-08-11 16:54:46,738 [INFO] \u2714 Resultado verificación: Datos no migrados para 2025-05-01
+2025-08-11 16:54:46,739 [INFO] Conexión SQL Server cerrada
+2025-08-11 16:54:47,647 [INFO] \U0001f4e6 Iniciando migración de traslados para fecha: 2025-05-01
+2025-08-11 16:54:47,650 [INFO] \u25b6 Migrando tabla OWTR
+2025-08-11 16:54:47,721 [INFO] Conexión SAP HANA establecida
+2025-08-11 16:54:47,725 [INFO] Query ejecutada en HANA: 
+                SELECT T0."DocEntry", T0."DocNum"...
+2025-08-11 16:54:47,728 [INFO] Conexión SAP HANA cerrada
+2025-08-11 16:54:47,729 [INFO] \u25b6 Migrando tabla WTR1
+2025-08-11 16:54:47,798 [INFO] Conexión SAP HANA establecida
+2025-08-11 16:54:47,802 [INFO] Query ejecutada en HANA: 
+                SELECT T0."DocEntry", T0."LineNum...
+2025-08-11 16:54:47,804 [INFO] Conexión SAP HANA cerrada
+2025-08-11 16:54:47,804 [INFO] \u25b6 Migrando tabla OITL
+2025-08-11 16:54:47,856 [INFO] Conexión SAP HANA establecida
+2025-08-11 16:54:47,862 [INFO] Query ejecutada en HANA: 
+                SELECT  T0."LogEntry", T0."ItemCo...
+2025-08-11 16:54:47,883 [INFO] Conexión SAP HANA cerrada
+2025-08-11 16:54:47,885 [INFO] Conexión SQL Server establecida
+2025-08-11 16:54:47,927 [INFO] Conexión SQL Server cerrada
+2025-08-11 16:54:47,927 [INFO] \u25b6 Migrando tabla OBTW
+2025-08-11 16:54:47,967 [INFO] Conexión SAP HANA establecida
+2025-08-11 16:54:47,970 [INFO] Query ejecutada en HANA: 
+                SELECT T0."ItemCode", T0."MdAbsEn...
+2025-08-11 16:54:52,578 [INFO] Conexión SAP HANA cerrada
+2025-08-11 16:54:52,578 [INFO] Conexión SQL Server establecida
+2025-08-11 16:55:10,203 [INFO] Conexión SQL Server cerrada
+2025-08-11 16:55:10,222 [INFO] \u25b6 Migrando tabla OBTN
+2025-08-11 16:55:10,270 [INFO] Conexión SAP HANA establecida
+2025-08-11 16:55:10,303 [INFO] Query ejecutada en HANA: 
+                SELECT T0."ItemCode", T0."DistNum...
+2025-08-11 16:55:10,888 [INFO] Conexión SAP HANA cerrada
+2025-08-11 16:55:10,888 [INFO] Conexión SQL Server establecida
+2025-08-11 16:55:12,016 [INFO] Conexión SQL Server cerrada
+2025-08-11 16:55:12,017 [INFO] \u25b6 Migrando tabla ITL1
+2025-08-11 16:55:12,061 [INFO] Conexión SAP HANA establecida
+2025-08-11 16:55:13,300 [INFO] Query ejecutada en HANA: 
+                SELECT  T0."LogEntry", T0."ItemCo...
+2025-08-11 16:55:17,304 [INFO] Conexión SAP HANA cerrada
+2025-08-11 16:55:17,304 [INFO] Conexión SQL Server establecida
+2025-08-11 16:55:31,178 [INFO] Conexión SQL Server cerrada
+2025-08-11 16:55:31,217 [INFO] \u25b6 Migrando tabla IBT1
+2025-08-11 16:55:31,315 [INFO] Conexión SAP HANA establecida
+2025-08-11 16:56:06,970 [INFO] Query ejecutada en HANA: 
+                SELECT T0."ItemCode", T0."BatchNu...
+2025-08-11 16:56:08,436 [INFO] Conexión SAP HANA cerrada
+2025-08-11 16:56:08,436 [INFO] Conexión SQL Server establecida
+2025-08-11 16:56:08,464 [INFO] Conexión SQL Server cerrada
+2025-08-11 16:56:08,464 [INFO] \U0001f3c1 Migración de traslado completada
+2025-08-11 17:18:35,933 [INFO] \U0001f50d Verificando migración para fecha: 2025-08-01, grupo: traslados
+2025-08-11 17:18:36,041 [INFO] Conexión SQL Server establecida
+2025-08-11 17:18:36,046 [INFO] \u2714 Resultado verificación: Datos no migrados para 2025-08-01
+2025-08-11 17:18:36,047 [INFO] Conexión SQL Server cerrada
+2025-08-11 17:18:41,069 [INFO] \U0001f50d Verificando migración para fecha: 2025-05-01, grupo: traslados
+2025-08-11 17:18:41,091 [INFO] Conexión SQL Server establecida
+2025-08-11 17:18:41,091 [INFO] \u2714 Resultado verificación: Datos no migrados para 2025-05-01
+2025-08-11 17:18:41,092 [INFO] Conexión SQL Server cerrada
+2025-08-11 17:18:41,894 [INFO] \U0001f4e6 Iniciando migración de traslados para fecha: 2025-05-01
+2025-08-11 17:18:41,896 [INFO] \u25b6 Migrando tabla OWTR
+2025-08-11 17:18:41,959 [INFO] Conexión SAP HANA establecida
+2025-08-11 17:18:41,963 [INFO] Query ejecutada en HANA: 
+                SELECT T0."DocEntry", T0."DocNum"...
+2025-08-11 17:18:41,965 [INFO] Conexión SAP HANA cerrada
+2025-08-11 17:18:41,965 [INFO] \u25b6 Migrando tabla WTR1
+2025-08-11 17:18:42,044 [INFO] Conexión SAP HANA establecida
+2025-08-11 17:18:42,048 [INFO] Query ejecutada en HANA: 
+                SELECT T0."DocEntry", T0."LineNum...
+2025-08-11 17:18:42,051 [INFO] Conexión SAP HANA cerrada
+2025-08-11 17:18:42,051 [INFO] \u25b6 Migrando tabla OITL
+2025-08-11 17:18:42,118 [INFO] Conexión SAP HANA establecida
+2025-08-11 17:18:42,124 [INFO] Query ejecutada en HANA: 
+                SELECT  T0."LogEntry", T0."ItemCo...
+2025-08-11 17:18:42,173 [INFO] Conexión SAP HANA cerrada
+2025-08-11 17:18:42,173 [INFO] Conexión SQL Server establecida
+2025-08-11 17:18:42,218 [INFO] Conexión SQL Server cerrada
+2025-08-11 17:18:42,218 [INFO] \u25b6 Migrando tabla OBTW
+2025-08-11 17:18:42,262 [INFO] Conexión SAP HANA establecida
+2025-08-11 17:18:42,265 [INFO] Query ejecutada en HANA: 
+                SELECT T0."ItemCode", T0."MdAbsEn...
+2025-08-11 17:18:47,583 [INFO] Conexión SAP HANA cerrada
+2025-08-11 17:18:47,584 [INFO] Conexión SQL Server establecida
+2025-08-11 17:18:58,913 [INFO] Conexión SQL Server cerrada
+2025-08-11 17:18:58,928 [INFO] \u25b6 Migrando tabla OBTN
+2025-08-11 17:18:59,535 [INFO] Conexión SAP HANA establecida
+2025-08-11 17:18:59,571 [INFO] Query ejecutada en HANA: 
+                SELECT T0."ItemCode", T0."DistNum...
+2025-08-11 17:19:00,338 [INFO] Conexión SAP HANA cerrada
+2025-08-11 17:19:00,339 [INFO] Conexión SQL Server establecida
+2025-08-11 17:19:01,401 [INFO] Conexión SQL Server cerrada
+2025-08-11 17:19:01,402 [INFO] \u25b6 Migrando tabla ITL1
+2025-08-11 17:19:01,444 [INFO] Conexión SAP HANA establecida
+2025-08-11 17:19:01,479 [INFO] Query ejecutada en HANA: 
+                SELECT  T0."LogEntry", T0."ItemCo...
+2025-08-11 17:19:08,160 [INFO] Conexión SAP HANA cerrada
+2025-08-11 17:19:08,161 [INFO] Conexión SQL Server establecida
+2025-08-11 17:19:26,296 [INFO] Conexión SQL Server cerrada
+2025-08-11 17:19:26,323 [INFO] \u25b6 Migrando tabla IBT1
+2025-08-11 17:19:26,405 [INFO] Conexión SAP HANA establecida
+2025-08-11 17:20:02,072 [INFO] Query ejecutada en HANA: 
+                SELECT T0."ItemCode", T0."BatchNu...
+2025-08-11 17:20:03,558 [INFO] Conexión SAP HANA cerrada
+2025-08-11 17:20:03,559 [INFO] Conexión SQL Server establecida
+2025-08-11 17:20:03,624 [INFO] Conexión SQL Server cerrada
+2025-08-11 17:20:03,624 [INFO] \U0001f3c1 Migración de traslado completada

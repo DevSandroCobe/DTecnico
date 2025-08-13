@@ -1,48 +1,84 @@
 import os
-from jinja2 import Environment, FileSystemLoader
+from datetime import datetime
 from weasyprint import HTML
-from Conexion.conexion_sql import ConexionBdAccesosSQL
+from jinja2 import Environment, FileSystemLoader, TemplateNotFound
 
-class GeneradorPdfActa:
-    def __init__(self, fecha, output_dir="output_pdfs"):
-        self.fecha = fecha
-        self.output_dir = output_dir
-        os.makedirs(self.output_dir, exist_ok=True)
-        self.env = Environment(loader=FileSystemLoader("generador_pdf"))
+# Ruta base absoluta al directorio actual (donde está este archivo)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-    def obtener_docentrys(self, procedimiento):
-        conexion = ConexionBdAccesosSQL(f"EXEC {procedimiento} '{self.fecha}'")
-        conexion.validar_conexion()
-        resultados = conexion.obtener_todos()
-        conexion.cerrar_conexion()
-        return [fila[0] for fila in resultados]
+def generar_pdf_acta_traslado(data: dict) -> str:
+    try:
+        # 1. Crear ruta base de salida
+        base_folder = os.path.join(BASE_DIR, "..", "ActaDespacho_traslado")
+        os.makedirs(base_folder, exist_ok=True)
 
-    def obtener_datos_encabezado(self, docentry):
-        conn = ConexionBdAccesosSQL(f"EXEC INFO_DOC_ENTREGA_VENTA {docentry}")
-        conn.validar_conexion()
-        encabezado = conn.obtener_uno_dict()
-        conn.cerrar_conexion()
-        return encabezado
+        # 2. Subcarpeta por fecha
+        fecha = data["fecha"]  # Esperado en formato dd-mm-yyyy
+        subcarpeta = os.path.join(base_folder, fecha)
+        os.makedirs(subcarpeta, exist_ok=True)
 
-    def obtener_datos_contenido(self, docentry):
-        conn = ConexionBdAccesosSQL(f"EXEC INFO_DOC_ENTREGA_VENTA {docentry}")
-        conn.validar_conexion()
-        contenido = conn.obtener_todos_dict()
-        conn.cerrar_conexion()
-        return contenido
+        # 3. Cargar plantilla
+        template_dir = os.path.join(BASE_DIR, "templates")
+        template_file = "acta_despacho_traslado.html"
 
-    def generar_pdf(self, docentry):
-        encabezado = self.obtener_datos_encabezado(docentry)
-        contenido = self.obtener_datos_contenido(docentry)
+        env = Environment(loader=FileSystemLoader(template_dir))
+        try:
+            template = env.get_template(template_file)
+            print("✅ Plantilla de traslado cargada correctamente")
+        except TemplateNotFound:
+            raise FileNotFoundError(f"❌ Plantilla '{template_file}' no encontrada en '{template_dir}'")
 
-        template = self.env.get_template("plantilla_acta.html")
-        html_content = template.render(encabezado=encabezado, contenido=contenido)
+        # 4. Renderizar HTML
+        html_content = template.render(**data)
 
-        output_path = os.path.join(self.output_dir, f"Acta_{docentry}.pdf")
-        HTML(string=html_content).write_pdf(output_path)
-        print(f"PDF generado: {output_path}")
+        # 5. Nombre de archivo
+        nombre_pdf = f"Acta_Traslado_{data['guia']}.pdf"
+        ruta_pdf = os.path.join(subcarpeta, nombre_pdf)
 
-    def generar_todos_los_pdfs(self):
-        docentries = self.obtener_docentrys("LISTADO_DOC_ENTREGA_VENTA")
-        for docentry in docentries:
-            self.generar_pdf(docentry)
+        # 6. Generar PDF
+        # Usar base_url como el directorio raíz del proyecto para que las rutas relativas funcionen
+        HTML(string=html_content, base_url=os.getcwd()).write_pdf(ruta_pdf)
+
+        return os.path.abspath(ruta_pdf)
+
+    except Exception as e:
+        print(f"❌ Error generando PDF de traslado: {e}")
+        raise
+
+def generar_pdf_acta_ventas(data: dict) -> str:
+    try:
+        # 1. Ruta base de salida
+        base_folder = os.path.join(BASE_DIR, "..", "ActaDespacho_ventas")
+        os.makedirs(base_folder, exist_ok=True)
+
+        # 2. Subcarpeta por fecha
+        fecha_str = data["fecha"]
+        subcarpeta = os.path.join(base_folder, fecha_str)
+        os.makedirs(subcarpeta, exist_ok=True)
+
+        # 3. Cargar plantilla
+        template_dir = os.path.join(BASE_DIR, "templates")
+        template_file = "acta_despacho_ventas.html"
+
+        env = Environment(loader=FileSystemLoader(template_dir))
+        try:
+            template = env.get_template(template_file)
+            print("✅ Plantilla de ventas cargada correctamente")
+        except TemplateNotFound:
+            raise FileNotFoundError(f"❌ Plantilla '{template_file}' no encontrada en '{template_dir}'")
+
+        # 4. Renderizar HTML
+        html_content = template.render(data=data)
+
+        # 5. Nombre del archivo
+        nombre_pdf = f"Acta_Ventas_{data['guia']}.pdf"
+        ruta_pdf = os.path.join(subcarpeta, nombre_pdf)
+
+        # 6. Generar PDF
+        HTML(string=html_content, base_url=template_dir).write_pdf(ruta_pdf)
+
+        return os.path.abspath(ruta_pdf)
+
+    except Exception as e:
+        print(f"❌ Error generando PDF de ventas: {e}")
+        raise

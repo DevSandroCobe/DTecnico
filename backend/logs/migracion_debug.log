@@ -1,0 +1,8 @@
+2025-08-12 12:29:05,006 INFO Comparación HANA vs SQL para OWTR: HANA=162, SQL=0
+2025-08-12 12:29:05,373 ERROR Error migrando WTR1: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'DocDate'. (207) (SQLExecDirectW)")
+2025-08-12 12:29:10,113 ERROR Error migrando OITL: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'DocDate'. (207) (SQLExecDirectW)")
+2025-08-12 12:29:15,875 ERROR Error migrando ITL1: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'DocDate'. (207) (SQLExecDirectW)")
+2025-08-12 12:29:15,936 INFO No hay registros en HANA para OBTN
+2025-08-12 12:29:15,996 ERROR Error migrando OBTW: No results.  Previous SQL was not a query.
+2025-08-12 12:29:16,760 ERROR Error migrando OITM: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'DocDate'. (207) (SQLExecDirectW)")
+2025-08-12 12:29:16,896 ERROR Error migrando OWHS: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'DocDate'. (207) (SQLExecDirectW)")
