@@ -85,7 +85,7 @@ def generar_pdf_traslado(data: PDFTrasladoRequest):
                     "checks": [True, True,True, True,True, True,True],  # Ajusta esto según tus datos reales
                 })
 
-            fecha_str = f"{encabezado['Dia']:02d}-{encabezado['Mes']:02d}-{encabezado['Anio'] + 2000}"
+            fecha_str = data.fecha.strftime("%d-%m-%Y")
 
 
             data_pdf = {

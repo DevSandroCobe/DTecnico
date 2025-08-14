@@ -40,11 +40,10 @@
 <!-- Encabezado -->
 <table class="sin-borde">
   <tr>
-    <td colspan="2" style="vertical-align: middle;">
+    <td colspan="3" style="vertical-align: middle;">
       <img src="generador_pdf/static/logo.jpg" style="width: 120px; height: 50px; display: block; margin: 0;" />
     </td>
-    <td></td>
-    <td align="right" style="vertical-align: middle;">
+    <td colspan="2" align="right" style="vertical-align: middle;">
       <table style="border-collapse: collapse; font-size: 12px; display: inline-table;">
         <tr>
           <td style="border: 1px solid; width: 60px; padding: 2px 6px;"><strong>F/ALM-001</strong></td>
@@ -54,17 +53,18 @@
     </td>
   </tr>
   <tr>
-    <td colspan="4" align="center" class="titulo">ACTA DE DESPACHO DE PRODUCTOS - COBEFAR S.A.C.</td>
+    <td colspan="6" align="center" class="titulo">ACTA DE DESPACHO DE PRODUCTOS - COBEFAR S.A.C.</td>
   </tr>
   <tr>
     <td style="text-align:left; font-size:12px;"><strong>FECHA :</strong></td>
     <td style="text-align:left; font-size:12px;">{{ fecha }}</td>
-    <td colspan="2" align="right" style="font-size:12px;"><strong>GUÍA N° :</strong> {{ guia }}</td>
+    <td colspan="2" align="right" style="font-size:12px;"><strong>GUÍA N° :</strong></td>
+    <td style="text-align:left; font-size:12px;">{{ guia }}</td>
   </tr>
   <tr>
     <td style="text-align:left; font-size:12px;"><strong>ALMACÉN ORIGEN :</strong></td>
     <td style="text-align:left; font-size:12px;">{{ AlmOrigen }}</td>
-    <td align="right" style="font-size:12px;"><strong>ALMACÉN DESTINO :</strong></td>
+    <td colspan="2" align="right" style="font-size:12px;"><strong>ALMACÉN DESTINO :</strong></td>
     <td style="text-align:left; font-size:12px;">{{ AlmDestino }}</td>
   </tr>
 </table>

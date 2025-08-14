@@ -136,7 +136,8 @@ export default {
 
       this.cargando = true
       try {
-        const data = await this.apiRequest("/generar_pdf_ventas/", "POST", { fecha: this.fecha })
+        const fechaFormateada = new Date(this.fecha).toISOString().split('T')[0]
+        const data = await this.apiRequest("/generar_pdf_ventas/", "POST", { fecha: fechaFormateada })
         Swal.fire({ icon: 'success', title: '✅ PDFs generados', text: `Se generaron ${data.archivos_generados.length} archivos.` })
       } catch (error) {
         Swal.fire({ icon: 'error', title: 'Error generando PDF', text: error.message })

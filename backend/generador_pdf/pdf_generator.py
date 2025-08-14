@@ -12,8 +12,8 @@ def generar_pdf_acta_traslado(data: dict) -> str:
         base_folder = os.path.join(BASE_DIR, "..", "ActaDespacho_traslado")
         os.makedirs(base_folder, exist_ok=True)
 
-        # 2. Subcarpeta por fecha
-        fecha = data["fecha"]  # Esperado en formato dd-mm-yyyy
+        # 2. Subcarpeta por fecha (formato dd-mm-yyyy)
+        fecha = data["fecha"].replace("/", "-")  # Asegura formato dd-mm-yyyy
         subcarpeta = os.path.join(base_folder, fecha)
         os.makedirs(subcarpeta, exist_ok=True)
 
@@ -31,8 +31,11 @@ def generar_pdf_acta_traslado(data: dict) -> str:
         # 4. Renderizar HTML
         html_content = template.render(**data)
 
-        # 5. Nombre de archivo
-        nombre_pdf = f"Acta_Traslado_{data['guia']}.pdf"
+
+        # 5. Nombre de archivo: usar el nombre pasado si existe, si no generar uno por defecto
+        nombre_pdf = data.get('nombre_pdf')
+        if not nombre_pdf:
+            nombre_pdf = f"Acta_Traslado_{data['guia']}.pdf"
         ruta_pdf = os.path.join(subcarpeta, nombre_pdf)
 
         # 6. Generar PDF
