@@ -30,6 +30,7 @@ router = APIRouter()
 
 class PDFTrasladoRequest(BaseModel):
     fecha: date
+    firma: str  # <-- ahora acepta firma
 
 @router.post("/generar_pdf_traslado/")
 def generar_pdf_traslado(data: PDFTrasladoRequest):
@@ -69,32 +70,49 @@ def generar_pdf_traslado(data: PDFTrasladoRequest):
             # Formatear productos para el PDF
             productos_formateados = []
             for item in productos:
+                # Convertir None a "" en todos los campos relevantes
+                def safe(val):
+                    if val is None or str(val).strip().lower() == 'none':
+                        return ""
+                    return str(val)
                 try:
-                    fecha_vcto = f"{item['Dia']:02d}/{item['Mes']:02d}/{item['Anio'] + 2000}"
-                except KeyError:
+                    dia = safe(item.get('Dia'))
+                    mes = safe(item.get('Mes'))
+                    anio = item.get('Anio')
+                    if anio is not None:
+                        anio = str(int(anio) + 2000)
+                    else:
+                        anio = ''
+                    fecha_vcto = f"{dia.zfill(2)}/{mes.zfill(2)}/{anio}"
+                except Exception:
                     fecha_vcto = "N/A"
 
+                descripcion = " ".join([
+                    safe(item.get('NombreComercial')).strip(),
+                    safe(item.get('Concentracion')).strip(),
+                    safe(item.get('FormaFarmaceutica')).strip(),
+                    safe(item.get('FormaPresentacion')).strip()
+                ]).strip()
+
                 productos_formateados.append({
-                    "cantidad": item.get("CantidadLote", 0),
-                    "descripcion": item.get("NombreComercial", ""),
-                    "lote": item.get("NroLote", ""),
-                    "serie": item.get("MnfSerial", ""),
+                    "cantidad": safe(item.get("CantidadLote", 0)),
+                    "descripcion": descripcion,
+                    "lote": safe(item.get("NroLote")),
                     "vencimiento": fecha_vcto,
-                    "rs": item.get("MnfSerial", ""),
-                    "condicion": item.get("CondicionAlm", ""),
-                    "checks": [True, True,True, True,True, True,True],  # Ajusta esto según tus datos reales
+                    "rs": safe(item.get("RegistroSanit")),
+                    "condicion": safe(item.get("CondicionAlm")),
                 })
 
             fecha_str = data.fecha.strftime("%d-%m-%Y")
 
-
             data_pdf = {
                 "fecha": fecha_str,
-                "guia": encabezado["NroGuia"],       # Cambiado de GuiaRemision a NroGuia
-                "AlmOrigen": encabezado["AlmOrigen"],   # Cambiado de AlmacenOrigen a AlmOrigen
-                "AlmDestino": encabezado["AlmDestino"], # Cambiado de AlmacenDestino a AlmDestino
-                "productos": productos,
-                        }
+                "guia": encabezado["NroGuia"],       
+                "AlmOrigen": encabezado["AlmOrigen"],   
+                "AlmDestino": encabezado["AlmDestino"], 
+                "productos": productos_formateados,
+                "firma": data.firma,  # <-- pasa la firma a la plantilla
+            }
 
             try:
                 ruta = generar_pdf_acta_traslado(data_pdf)
@@ -111,7 +129,6 @@ def generar_pdf_traslado(data: PDFTrasladoRequest):
         logger.critical(f"🔥 Error en generar_pdf_traslado: {e}")
         logger.debug(traceback.format_exc())
         raise HTTPException(status_code=500, detail=f"Error generando PDF traslado: {str(e)}")
-
 
 
 

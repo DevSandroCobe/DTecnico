@@ -181,6 +181,28 @@ class Importador:
                     self._str(reg_hana[17]),
                     self._str(reg_hana[18])
                 ])
+            elif tabla == "ENTREGAS_VENTA":
+                self._agregar_insert(tabla, [
+                    self._str(reg_hana[0]),
+                    self._str(reg_hana[1]),
+                    self._str(reg_hana[2]),
+                    self._str(reg_hana[3]),
+                    self._str(reg_hana[4]),
+                    self._str(reg_hana[5]),
+                    self._str(reg_hana[6]),
+                    self._str(reg_hana[7]),
+                    self._str(reg_hana[8]),
+                    self._str(reg_hana[9]),
+                    self._str(reg_hana[10]),
+                    self._str(reg_hana[11]),
+                    self._str(reg_hana[12]),
+                    self._str(reg_hana[13]),
+                    self._str(reg_hana[14]),
+                    self._str(reg_hana[15]),
+                    self._str(reg_hana[16]),
+                    self._str(reg_hana[17]),
+                    self._str(reg_hana[18])
+                ])
         except IndexError as e:
             print(f"❌ ERROR en {tabla}: índice fuera de rango en reg_hana → {e}")
         except Exception as e:

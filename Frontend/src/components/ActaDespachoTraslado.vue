@@ -4,8 +4,17 @@
 
     <p>Ingrese la fecha de los documentos por exportar</p>
 
+
     <label for="fecha">Fecha:</label>
     <input type="date" v-model="fecha" id="fecha" @change="verificarMigracion" />
+
+    <label for="firma">Seleccionar firma:</label>
+    <select v-model="firmaSeleccionada" id="firma">
+      <option disabled value="">Seleccione una firma</option>
+      <option v-for="firma in firmasDisponibles" :key="firma" :value="firma">
+        {{ mostrarNombreFirma(firma) }}
+      </option>
+    </select>
 
     <div v-if="fechaVerificada" class="estado-migracion">
       <span v-if="datosMigrados" class="badge success">✅ Datos ya migrados</span>
@@ -53,6 +62,55 @@ export default {
       datosMigrados: false,
       fechaVerificada: false,
       bonoHabilitado: false,
+  firmaSeleccionada: "",
+      firmasDisponibles: [
+        "FirmaAlfredoRoldanEsparraga.png",
+        "FirmaAnthonyAuquipuma.png",
+        "FirmaEdgarNolascoChavez.png",
+        "FirmaDavidVidalRafael.png",
+        "FirmaDamianAlvarezGarcia.png",
+        "FirmaCesarLopezRivas.png",
+        "FirmaCarmenCondoriSaravia.png",
+        "FirmaCarlosRodasSandoval.png",
+        "FirmaAntonySarangoTamayo.png",
+        "FirmaHemersonRichardLauraPaucar.png",
+        "FirmaHeberCastilloCastillo.png",
+        "FirmaFreddyAnguloGaray.png",
+        "FirmaEvelinMamaniDelgado.png",
+        "FirmaHenryRodasSandoval.png",
+        "FirmaJesusDanielPisconteAguado.png",
+        "FirmaJesusAngelNunahuanca.png",
+        "FirmaIvanAchoNavarro.png",
+        "FirmaMaribelRamos.png",
+        "FirmaRaulSuarezPumacayo.png",
+        "FirmaRaulLlanosYauri.png",
+        "FirmaLuisPerezGomez.png",
+        "FirmaMariaLopezSanchez.png",
+        "FirmaPedroGonzalezDiaz.png",
+        "FirmaAnaMartinezVega.png",
+        "FirmaJoseRamirezTorres.png",
+        "FirmaSofiaCastroMendoza.png",
+        "FirmaMiguelFloresParedes.png",
+        "FirmaLuciaMoralesReyes.png",
+        "FirmaJorgeVargasSalas.png",
+        "FirmaPatriciaHerreraCruz.png",
+        "FirmaRicardoOrtegaSilva.png",
+        "FirmaSandraGutierrezRios.png",
+        "FirmaVictorMendozaAguilar.png",
+        "FirmaGabrielaSotoCampos.png",
+        "FirmaFernandoNavarroPeña.png",
+        "FirmaPaolaRojasValdez.png",
+        "FirmaCarmenZamoraLuna.png",
+        "FirmaOscarParedesQuispe.png",
+        "FirmaRosaVeraHuaman.png",
+        "FirmaHugoSalazarMejia.png",
+        "FirmaGloriaCruzEspinoza.png",
+        "FirmaCesarVargasLopez.png",
+        "FirmaDianaMendozaPerez.png",
+        "FirmaJulioRamirezSoto.png",
+        "FirmaElenaTorresGomez.png",
+        "FirmaMartinFloresDiaz.png"
+      ],
     };
   },
   mounted() {
@@ -64,6 +122,9 @@ export default {
     });
   },
   methods: {
+    mostrarNombreFirma(firma) {
+      return firma.replace('Firma', '').replace('.png', '').replace(/([A-Z])/g, ' $1').trim();
+    },
     async apiRequest(url, method = "GET", body = null) {
       const options = { method, headers: { "Content-Type": "application/json" } }
       if (body) options.body = JSON.stringify(body)
@@ -135,17 +196,21 @@ export default {
     async generarPDF() {
       if (!this.fecha) return Swal.fire({ icon: 'info', title: 'Seleccione una fecha' })
       if (!this.datosMigrados && !this.bonoHabilitado) return Swal.fire({ icon: 'warning', text: 'Primero migre los datos o habilite el bono' })
+      if (!this.firmaSeleccionada) return Swal.fire({ icon: 'warning', text: 'Seleccione una firma' })
 
       this.cargando = true
       try {
-        const data = await this.apiRequest("/generar_pdf_traslado/", "POST", { fecha: this.fecha })
+        const data = await this.apiRequest("/generar_pdf_traslado/", "POST", {
+          fecha: this.fecha,
+          firma: this.firmaSeleccionada
+        })
         Swal.fire({ icon: 'success', title: '✅ PDFs generados', text: `Se generaron ${data.archivos_generados.length} archivos.` })
       } catch (error) {
         Swal.fire({ icon: 'error', title: 'Error generando PDF', text: error.message })
       } finally {
         this.cargando = false
       }
-    }
+    },
   }
 }
 </script>
@@ -194,6 +259,22 @@ input[type="date"] {
   width: 100%;
   max-width: 260px;
   font-size: 15px;
+}
+
+select#firma {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  margin-bottom: 1rem;
+  background: #f8fafc;
+  color: #333;
+  transition: border-color 0.2s;
+}
+select#firma:focus {
+  border-color: #4CAF50;
+  outline: none;
 }
 
 .botones {

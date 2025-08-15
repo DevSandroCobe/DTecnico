@@ -6,6 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from datetime import date
 import os
+from fastapi.staticfiles import StaticFiles
 
 # Módulos locales
 from Migrador.migrador import Migrador
@@ -43,6 +44,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"]
 )
+
+# Montar carpeta de estáticos para acceso web (opcional pero recomendado)
+app.mount("/static", StaticFiles(directory="generador_pdf/static"), name="static")
 
 # --------------------------------------------------------
 # Modelos de entrada

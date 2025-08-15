@@ -31,7 +31,6 @@ def generar_pdf_acta_traslado(data: dict) -> str:
         # 4. Renderizar HTML
         html_content = template.render(**data)
 
-
         # 5. Nombre de archivo: usar el nombre pasado si existe, si no generar uno por defecto
         nombre_pdf = data.get('nombre_pdf')
         if not nombre_pdf:
@@ -39,8 +38,9 @@ def generar_pdf_acta_traslado(data: dict) -> str:
         ruta_pdf = os.path.join(subcarpeta, nombre_pdf)
 
         # 6. Generar PDF
-        # Usar base_url como el directorio raíz del proyecto para que las rutas relativas funcionen
-        HTML(string=html_content, base_url=os.getcwd()).write_pdf(ruta_pdf)
+        # Usar base_url como la carpeta de estáticos para que WeasyPrint encuentre la firma
+        static_dir = os.path.abspath(os.path.join(BASE_DIR, "static"))
+        HTML(string=html_content, base_url=static_dir).write_pdf(ruta_pdf)
 
         return os.path.abspath(ruta_pdf)
 

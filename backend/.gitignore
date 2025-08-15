@@ -1,2 +1,6 @@
 # .gitignore
 .env
+ActaDespacho_traslado/
+**/__pycache__/
+env/
+logs/

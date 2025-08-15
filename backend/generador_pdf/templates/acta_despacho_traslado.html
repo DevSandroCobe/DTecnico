@@ -41,7 +41,7 @@
 <table class="sin-borde">
   <tr>
     <td colspan="3" style="vertical-align: middle;">
-      <img src="generador_pdf/static/logo.jpg" style="width: 120px; height: 50px; display: block; margin: 0;" />
+      <img src="logo.jpg" style="width: 120px; height: 50px; display: block; margin: 0;" />
     </td>
     <td colspan="2" align="right" style="vertical-align: middle;">
       <table style="border-collapse: collapse; font-size: 12px; display: inline-table;">
@@ -101,41 +101,41 @@
   <tbody>
     {% for item in productos %}
     <tr>
-      <td style="padding: 2px;">{{ item.CantidadLote|int }}</td>
-      <td style="text-align: left; padding: 2px;">{{ item.NombreComercial }} {{ item.Concentracion }} {{ item.FormaFarmaceutica }} {{ item.FormaPresentacion }}</td>
-      <td style="padding: 2px;">{{ item.NroLote }}</td>
-      <td style="padding: 2px;">{{ item.Dia }}/{{ item.Mes }}/{{ item.Anio }}</td>
-      <td style="padding: 2px;">{{ item.RegistroSanit }}</td>
+      <td style="padding: 2px;">{{ item.cantidad or '' }}</td>
+      <td style="text-align: left; padding: 2px;">{{ item.descripcion or '' }}</td>
+      <td style="padding: 2px;">{{ item.lote or '' }}</td>
+      <td style="padding: 2px;">{{ item.vencimiento or '' }}</td>
+      <td style="padding: 2px;">{{ item.rs or '' }}</td>
 
       <!-- Protocolo -->
-      <td style="padding: 0;"><img src="generador_pdf/static/check.png" style="width: 12px; height: 12px; display: block; margin: auto;" /></td>
+      <td style="padding: 0;"><img src="check.png" style="width: 12px; height: 12px; display: block; margin: auto;" /></td>
       <td style="padding: 0;"></td>
 
       <!-- Cajas Limpias -->
-      <td style="padding: 0;"><img src="generador_pdf/static/check.png" style="width: 12px; height: 12px; display: block; margin: auto;" /></td>
+      <td style="padding: 0;"><img src="check.png" style="width: 12px; height: 12px; display: block; margin: auto;" /></td>
       <td style="padding: 0;"></td>
 
       <!-- Embalaje Cerrado -->
-      <td style="padding: 0;"><img src="generador_pdf/static/check.png" style="width: 12px; height: 12px; display: block; margin: auto;" /></td>
+      <td style="padding: 0;"><img src="check.png" style="width: 12px; height: 12px; display: block; margin: auto;" /></td>
       <td style="padding: 0;"></td>
 
       <!-- Consigna Embalaje -->
-      <td style="padding: 0;"><img src="generador_pdf/static/check.png" style="width: 12px; height: 12px; display: block; margin: auto;" /></td>
+      <td style="padding: 0;"><img src="check.png" style="width: 12px; height: 12px; display: block; margin: auto;" /></td>
       <td style="padding: 0;"></td>
 
       <!-- Condición de Almacen -->
-      <td style="padding: 2px;">{{ item.CondicionAlm }}</td>
+      <td style="padding: 2px;">{{ item.condicion or '' }}</td>
 
       <!-- Manchado -->
-      <td style="padding: 0;"><img src="generador_pdf/static/check.png" style="width: 12px; height: 12px; display: block; margin: auto;" /></td>
-      <td style="padding: 0;"></td>
-
+       <td style="padding: 0;"></td>
+      <td style="padding: 0;"><img src="check.png" style="width: 12px; height: 12px; display: block; margin: auto;" /></td>
+      
       <!-- Corresponde Documento -->
-      <td style="padding: 0;"><img src="generador_pdf/static/check.png" style="width: 12px; height: 12px; display: block; margin: auto;" /></td>
+      <td style="padding: 0;"><img src="check.png" style="width: 12px; height: 12px; display: block; margin: auto;" /></td>
       <td style="padding: 0;"></td>
 
       <!-- Vehículo Adecuado -->
-      <td style="padding: 0;"><img src="generador_pdf/static/check.png" style="width: 12px; height: 12px; display: block; margin: auto;" /></td>
+      <td style="padding: 0;"><img src="check.png" style="width: 12px; height: 12px; display: block; margin: auto;" /></td>
       <td style="padding: 0;"></td>
     </tr>
     {% endfor %}
@@ -149,7 +149,7 @@
   </tr>
   <tr>
     <td colspan="20" align="center">
-      <img src="generador_pdf/static/FirmaAnthonyAuquipuma.png" style="width: 150px; display: block; margin: auto;" />
+      <img src="Firmas/{{ firma }}" style="width: 150px; display: block; margin: auto;" />
     </td>
   </tr>
   <tr>
